@@ -51,3 +51,10 @@ python scripts/reproduce.py
 数据引用：Janosi, A., Steinbrunn, W., Pfisterer, M., & Detrano, R. (1989). *Heart Disease*. UCI Machine Learning Repository. [DOI: 10.24432/C52P4X](https://doi.org/10.24432/C52P4X)。[UCI 数据页面](https://archive.ics.uci.edu/dataset/45/heart+disease)标注数据许可为 CC BY 4.0；数据权利归原权利人。
 
 仓库组织参考：[转录组与单细胞联合分析案例](https://github.com/jiweichen28-web/sciforge-transcriptomics-singlecell)、[Lean 与 CUDA 案例](https://github.com/zx070326-hash/sciforge-lean-cuda-cases)。分析与结果来自本案例自身运行。
+
+## 作者与贡献
+
+- **张泽宇（[MultiHugo](https://github.com/MultiHugo)）**：案例设计、研究组织、人工测试与最终确认。
+- **[OpenAI Codex](https://github.com/codex)（AI 辅助工具）**：分析脚本编写、实验执行与结果复核、中英文材料整理及仓库发布。
+
+Git 提交以 MultiHugo 为主作者，并通过 `Co-authored-by: Codex <codex@openai.com>` 标注 Codex 的辅助贡献。
