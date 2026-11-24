@@ -1,0 +1,16 @@
+{
+  "center": "cleveland",
+  "source": "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data",
+  "raw_sha256": "a74b7efa387bc9d108d7d0115d831fe9b414b29ae7124f331b622b4efa0427c8",
+  "raw_rows": 303,
+  "retained_rows": 303,
+  "train_rows": 199,
+  "test_rows": 104,
+  "positive_rate": 0.45874587458745875,
+  "auroc": 0.8787202380952381,
+  "accuracy": 0.7788461538461539,
+  "seed": 43,
+  "protocol": "FLamby-inspired; custom NumPy stratified split, fixed categorical vocabulary, L2 logistic regression; NOT official FLamby scores",
+  "numpy": "2.4.1",
+  "script_sha256": "5ec990823feac755926bdca479b29266f81cf93d09de2a2ca9c7a8741043bfa7"
+}

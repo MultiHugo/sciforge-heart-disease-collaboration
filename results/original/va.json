@@ -1,0 +1,16 @@
+{
+  "center": "va",
+  "source": "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.va.data",
+  "raw_sha256": "e7c93d8d0d2acdadfa4c5e8de768e2191e7f618b952e29623f1f0d5949ff6b8f",
+  "raw_rows": 200,
+  "retained_rows": 130,
+  "train_rows": 85,
+  "test_rows": 45,
+  "positive_rate": 0.7769230769230769,
+  "auroc": 0.5628571428571428,
+  "accuracy": 0.7555555555555555,
+  "seed": 43,
+  "protocol": "FLamby-inspired; custom NumPy stratified split, fixed categorical vocabulary, L2 logistic regression; NOT official FLamby scores",
+  "numpy": "2.4.1",
+  "script_sha256": "5ec990823feac755926bdca479b29266f81cf93d09de2a2ca9c7a8741043bfa7"
+}

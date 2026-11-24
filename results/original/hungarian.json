@@ -1,0 +1,16 @@
+{
+  "center": "hungarian",
+  "source": "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data",
+  "raw_sha256": "d1ad108f785768cd3d7e82dc522e6f5a61eea93cccfb3a46ee8076f73fc3d796",
+  "raw_rows": 294,
+  "retained_rows": 261,
+  "train_rows": 171,
+  "test_rows": 90,
+  "positive_rate": 0.37547892720306514,
+  "auroc": 0.9044117647058824,
+  "accuracy": 0.8333333333333334,
+  "seed": 43,
+  "protocol": "FLamby-inspired; custom NumPy stratified split, fixed categorical vocabulary, L2 logistic regression; NOT official FLamby scores",
+  "numpy": "2.4.1",
+  "script_sha256": "5ec990823feac755926bdca479b29266f81cf93d09de2a2ca9c7a8741043bfa7"
+}

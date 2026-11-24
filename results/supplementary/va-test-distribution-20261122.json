@@ -1,0 +1,22 @@
+{
+  "verification": "Recomputed from original hash-verified script and data; original outputs unchanged",
+  "numpy": "2.4.1",
+  "script_sha256": "5ec990823feac755926bdca479b29266f81cf93d09de2a2ca9c7a8741043bfa7",
+  "raw_sha256": "e7c93d8d0d2acdadfa4c5e8de768e2191e7f618b952e29623f1f0d5949ff6b8f",
+  "retained_positive": 101,
+  "retained_total": 130,
+  "test_total": 45,
+  "test_positive": 35,
+  "test_negative": 10,
+  "test_positive_rate": 0.7777777777777778,
+  "predicted_positive": 38,
+  "predicted_negative": 7,
+  "predicted_positive_rate": 0.8444444444444444,
+  "true_positive": 31,
+  "false_negative": 4,
+  "true_negative": 3,
+  "false_positive": 7,
+  "accuracy": 0.7555555555555555,
+  "auroc": 0.5628571428571428,
+  "all_positive_accuracy": 0.7777777777777778
+}

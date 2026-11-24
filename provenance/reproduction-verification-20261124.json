@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "numpy": "2.4.1",
+  "original_numpy": "2.4.1",
+  "checks": {
+    "cleveland": {
+      "status": "PASS",
+      "auroc": 0.8787202380952381,
+      "accuracy": 0.7788461538461539
+    },
+    "hungarian": {
+      "status": "PASS",
+      "auroc": 0.9044117647058824,
+      "accuracy": 0.8333333333333334
+    },
+    "va": {
+      "status": "PASS",
+      "auroc": 0.5628571428571428,
+      "accuracy": 0.7555555555555555
+    },
+    "va_supplementary": {
+      "status": "PASS",
+      "retained_positive": 101,
+      "retained_total": 130,
+      "test_total": 45,
+      "test_positive": 35,
+      "test_negative": 10,
+      "test_positive_rate": 0.7777777777777778,
+      "predicted_positive": 38,
+      "predicted_negative": 7,
+      "predicted_positive_rate": 0.8444444444444444,
+      "true_positive": 31,
+      "false_negative": 4,
+      "true_negative": 3,
+      "false_positive": 7,
+      "accuracy": 0.7555555555555555,
+      "auroc": 0.5628571428571428,
+      "all_positive_accuracy": 0.7777777777777778
+    }
+  }
+}

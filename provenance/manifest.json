@@ -1,0 +1,94 @@
+{
+  "case_author": "Zeyu Zhang / 张泽宇 (MultiHugo)",
+  "published_on": "2026-11-24",
+  "original_analysis_date": "2026-11-12",
+  "supplementary_analysis_date": "2026-11-22",
+  "scope": "Single-machine multi-account collaboration demonstration; local baselines only",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "d971e420c51487dd137196976d4811e76681b5be8c9a7ac749f9f6248e1c74cd",
+      "bytes": 23
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "056a1eea3feb0808e852a5e40f8e1cb9421834e452e747b49a2c3b4f5f87f578",
+      "bytes": 57
+    },
+    {
+      "path": "docs/case-study.en.md",
+      "sha256": "4d1c3ffaa479c27176d4f2807ea50175f1d5f67858b819d15ff46d682103384b",
+      "bytes": 4072
+    },
+    {
+      "path": "docs/case-study.zh-CN.md",
+      "sha256": "a5180a987bffea5bc44c0b9825dca05adf029309c7de566c571ef8d78c5424ee",
+      "bytes": 3524
+    },
+    {
+      "path": "figures/01-project-board.png",
+      "sha256": "cd680c41f147374087deda03d7548c4f4bd0892f7c5176d770522c368cf6bbec",
+      "bytes": 181237
+    },
+    {
+      "path": "figures/02-peer-review.png",
+      "sha256": "57d908993db7aa381e73799a296b320a09786034062960331ef483ae7dc82d59",
+      "bytes": 281920
+    },
+    {
+      "path": "METHODS.md",
+      "sha256": "dff052f68cd7dd14c027115ef55ef37b70990d86dfd9b3dbd471b1ecff3358d2",
+      "bytes": 2671
+    },
+    {
+      "path": "provenance/reproduction-verification-20261124.json",
+      "sha256": "05dd6e42c9a8019abd71986362641c7d065e2768c979ff0c00697cfd41f13176",
+      "bytes": 1080
+    },
+    {
+      "path": "provenance/shared-research-note-20261113.md",
+      "sha256": "2d8c3425e7e0d6c2270f0c797832cccc54527ce5236e5fdf9ca64228a8a4a751",
+      "bytes": 1239
+    },
+    {
+      "path": "README.md",
+      "sha256": "11c572a4ec8b3176cc1f528d7152e5e894358c27cbfe3d57dc605528a0da7499",
+      "bytes": 3717
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "f5eca074d4b312a790a5e8872230e58570a4aea298a9342e924b9e490546e6e9",
+      "bytes": 14
+    },
+    {
+      "path": "results/original/cleveland.json",
+      "sha256": "f28d5578e2e67a3a8b0e20d424db4d69155ae3be4f2f947f93dcbcd0c32eb6e6",
+      "bytes": 694
+    },
+    {
+      "path": "results/original/hungarian.json",
+      "sha256": "0cde5c76c4e6cd2d32fc57d155425510f78779cd99dd25dedbeb052d31d39d52",
+      "bytes": 693
+    },
+    {
+      "path": "results/original/va.json",
+      "sha256": "d9c4ca8904a2cc0ba1ccfd2c012165610e04f38d43992745ae9c335bbfe1c378",
+      "bytes": 677
+    },
+    {
+      "path": "results/supplementary/va-test-distribution-20261122.json",
+      "sha256": "955eddbcc2cba898a201090bb40a139157dee1a1cf65a9e6891adbee801d1a26",
+      "bytes": 788
+    },
+    {
+      "path": "scripts/local_baseline.py",
+      "sha256": "5ec990823feac755926bdca479b29266f81cf93d09de2a2ca9c7a8741043bfa7",
+      "bytes": 3049
+    },
+    {
+      "path": "scripts/reproduce.py",
+      "sha256": "e5e067a67f0539fe697cba517c7968446e51a2cc13c1d6d96098ff87ff8ec7c5",
+      "bytes": 3916
+    }
+  ]
+}
