@@ -52,12 +52,12 @@ The original aggregate results are summarised in Table~\ref{tab:case-heart-basel
   \end{tabular}
 \end{table}
 
-On 2026-11-22, the hash-verified script was rerun against the public source data to reconstruct the missing VA diagnostic. Of 45 test cases, 35 were positive (77.78\%) and 10 were negative. At a threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives. It produced 31 true positives, four false negatives, three true negatives and seven false positives, for 34 correct classifications. Thus, the model's 75.56\% accuracy was below the 77.78\% obtained by assigning every test case to the positive class. AUROC remained 0.5629. Figure~\ref{fig:case-heart-disease} keeps the two evidence stages visible: panel~a shows the original collaborative path, while panel~b shows the later diagnostic that tested the review question.
+On 2026-11-22, the hash-verified script was rerun against the public source data to reconstruct the missing VA diagnostic. Of 45 test cases, 35 were positive (77.78\%) and 10 were negative. At a threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives. It produced 31 true positives, four false negatives, three true negatives and seven false positives, for 34 correct classifications. Thus, the model's 75.56\% accuracy was below the 77.78\% obtained by assigning every test case to the positive class. AUROC remained 0.5629. Figure~\ref{fig:case-heart-disease} traces the study from local analyses to the shared report, the review question and the subsequent diagnostic.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{cases/case-02-heart-disease/figures/fig5_heart_disease.pdf}
-  \caption{Cross-review and follow-up analysis of the VA result. \textbf{a}, Original SciForge workflow from local analyses to cross-review and revision. \textbf{b}, Subsequent VA diagnostic reconstructed from the versioned analysis.}
+  \caption{Heart Disease research workflow. A common protocol connects three role-specific local analyses to shared reporting, cross-review and report revision in SciForge. The dashed branch shows the later analysis prompted by the VA review question. One operator enacted all three roles.}
   \label{fig:case-heart-disease}
 \end{figure}
 

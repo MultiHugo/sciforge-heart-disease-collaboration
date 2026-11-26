@@ -192,16 +192,17 @@ class PaperCaseContractTests(unittest.TestCase):
         svg_root = ET.parse(svg).getroot()
         svg_text = " ".join(svg_root.itertext())
         required = (
-            "From local baselines to a shared question",
-            "VA audit: accuracy below the all-positive baseline",
+            "Set up a common study",
+            "Run local analyses in separate workspaces",
+            "Review and revise in the SciForge project",
+            "Follow-up analysis",
             "Cleveland",
             "Hungarian",
             "VA",
             "aggregate results only",
             "35/45",
-            "38/45",
+            "34/45",
             "75.56%",
-            "77.78%",
             "AUROC 0.5629",
         )
         for label in required:

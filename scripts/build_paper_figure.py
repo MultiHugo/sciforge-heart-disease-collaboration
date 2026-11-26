@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "paper/case-02-heart-disease/figures"
-W, H = 1200, 910
+W, H = 1200, 950
 INK, MUTED, BLUE, TEAL, AMBER = "#182D40", "#526576", "#286390", "#25796F", "#946123"
 RULE, PALE, WHITE = "#D4DFE6", "#F3F7FA", "#FFFFFF"
 svg = ET.Element("svg", xmlns="http://www.w3.org/2000/svg", width=str(W), height=str(H), viewBox=f"0 0 {W} {H}", role="img")
@@ -41,9 +41,9 @@ def oval(x, y, w, h, fill="none", stroke=BLUE, sw=2):
     cell("", f"ellipse;fillColor={fill};strokeColor={stroke};strokeWidth={sw};", x, y, w, h)
 
 
-def line(points, color=RULE, sw=1.8, arrow=False):
+def line(points, color=RULE, sw=1.8, arrow=False, dashed=False):
     global count
-    ET.SubElement(svg, "polyline", points=" ".join(f"{x},{y}" for x,y in points), fill="none", stroke=color, **{"stroke-width": str(sw), "stroke-linecap": "round", "stroke-linejoin": "round"})
+    ET.SubElement(svg, "polyline", points=" ".join(f"{x},{y}" for x,y in points), fill="none", stroke=color, **{"stroke-width": str(sw), "stroke-linecap": "round", "stroke-linejoin": "round", "stroke-dasharray": "6 5" if dashed else "none"})
     if arrow:
         x,y = points[-1]
         px,py = points[-2]
@@ -52,7 +52,7 @@ def line(points, color=RULE, sw=1.8, arrow=False):
         pts = [(x-8*math.cos(angle-.45), y-8*math.sin(angle-.45)), (x,y), (x-8*math.cos(angle+.45), y-8*math.sin(angle+.45))]
         ET.SubElement(svg, "polyline", points=" ".join(f"{a},{b}" for a,b in pts), fill="none", stroke=color, **{"stroke-width": str(sw), "stroke-linecap": "round", "stroke-linejoin": "round"})
     count += 1
-    node = ET.SubElement(root, "mxCell", id=str(count), style=f"edgeStyle=none;rounded=0;endArrow={'open' if arrow else 'none'};endFill=0;endSize=8;strokeColor={color};strokeWidth={sw};", edge="1", parent="1")
+    node = ET.SubElement(root, "mxCell", id=str(count), style=f"edgeStyle=none;rounded=0;endArrow={'open' if arrow else 'none'};endFill=0;endSize=8;strokeColor={color};strokeWidth={sw};dashed={int(dashed)};", edge="1", parent="1")
     geom = ET.SubElement(node, "mxGeometry", relative="1", **{"as": "geometry"})
     ET.SubElement(geom, "mxPoint", x=str(points[0][0]), y=str(points[0][1]), **{"as": "sourcePoint"})
     ET.SubElement(geom, "mxPoint", x=str(points[-1][0]), y=str(points[-1][1]), **{"as": "targetPoint"})
@@ -104,75 +104,50 @@ def icon(name, x, y, color=BLUE):
 
 
 box(0,0,W,H,WHITE,"none",0)
-text(36,29,"a",28,bold=True,width=28)
-text(74,29,"From local baselines to a shared question",28,bold=True,width=1090)
-text(74,69,"Original collaboration · 12–13 Nov 2026",21,MUTED,width=1080)
+text(40,24,"Heart Disease: how cross-review changed the analysis",30,bold=True,width=1120)
+text(40,68,"Research question: do local models distinguish positive and negative cases?",23,MUTED,width=1120)
 
-for x, place, role, rows in [(40,"Cleveland","Role B · coordinator","303 retained · 104 test"),(420,"Hungarian","Role C · reviewer","261 retained · 90 test"),(800,"VA","Role D · analyst","130 retained · 45 test")]:
-    box(x,108,360,101)
-    icon("database",x+16,124)
-    text(x+61,123,place,25,bold=True,width=280)
-    text(x+61,155,role,21,MUTED,width=280)
-    text(x+61,181,rows,21,MUTED,width=280)
+box(40,120,1120,95,PALE)
+icon("database",62,145)
+text(110,137,"1  Set up a common study",25,BLUE,True,width=1020)
+text(110,176,"UCI Heart Disease · three institutional partitions · one logistic-regression workflow",23,width=1020)
+line([(600,215),(600,250)],BLUE,1.8,True)
+box(40,260,1120,217,"#FAFCFD")
+text(60,274,"2  Run local analyses in separate workspaces",24,BLUE,True,width=1080)
 
-line([(220,209),(220,235),(980,235),(980,209)],BLUE,1.7)
-line([(600,209),(600,235)],BLUE,1.7)
-line([(220,235),(220,275)],BLUE,1.7,True)
-text(425,245,"aggregate results only",21,BLUE,width=350,align="center")
+for x,place,role in [(60,"Cleveland","B · analyst and coordinator"),(438,"Hungarian","C · analyst and reviewer"),(816,"VA","D · analyst")]:
+    box(x,320,324,137)
+    icon("people",x+16,339)
+    text(x+60,337,place,25,bold=True,width=250)
+    text(x+16,374,role,21,BLUE,width=294)
+    text(x+16,410,"Train and evaluate a local model",20,width=294)
+line([(222,457),(222,493),(978,493),(978,457)],BLUE,1.7)
+line([(600,457),(600,493)],BLUE,1.7)
+line([(222,493),(222,537)],BLUE,1.7,True)
+text(420,505,"Share methods and aggregate results only",22,BLUE,width=740)
 
-for x, title, name, col, fill, lines in [
-    (40,"Shared results","report",BLUE,PALE,["Methods and local metrics","enter one research record."]),
-    (420,"Cross-review","review",AMBER,"#FCF8F0",["VA: accuracy 0.7556,","but AUROC only 0.5629?"]),
-    (800,"Revised interpretation","check",TEAL,"#F1F7F5",["Report prevalence and","discrimination together."]),
+box(40,547,1120,202,"#FAFCFD")
+text(60,561,"3  Review and revise in the SciForge project",24,BLUE,True,width=1080)
+for x,title,name,col,fill,lines in [
+    (60,"B combines reports","report",BLUE,PALE,["Three local baselines in","one shared research record"]),
+    (438,"C questions VA accuracy","review",AMBER,"#FCF8F0",["75.56% correct, yet weak","discrimination (AUROC 0.5629)"]),
+    (816,"B revises the report","check",TEAL,"#F1F7F5",["Add class balance and AUROC;","propose repeated-split checks"]),
 ]:
-    box(x,281,360,119,fill)
-    icon(name,x+15,298,col)
-    text(x+60,298,title,24,col,True,width=286)
+    box(x,603,324,125,fill)
+    icon(name,x+14,618,col)
+    text(x+55,619,title,22,col,True,width=260)
     for i,s in enumerate(lines):
-        text(x+20,338+i*27,s,22,width=320)
-line([(400,340),(418,340)],BLUE,1.7,True)
-line([(780,340),(798,340)],BLUE,1.7,True)
+        text(x+16,661+i*27,s,21,width=294)
+line([(384,667),(435,667)],BLUE,1.8,True)
+line([(762,667),(813,667)],BLUE,1.8,True)
+line([(600,728),(600,800)],AMBER,1.8,True,True)
+text(625,764,"Question for follow-up",21,AMBER,width=290)
 
-line([(40,429),(1160,429)],RULE,1.4)
-text(36,451,"b",28,bold=True,width=28)
-text(74,451,"VA audit: accuracy below the all-positive baseline",28,bold=True,width=1085)
-text(74,491,"Supplementary recomputation · 22 Nov 2026 · same 45-case test set",21,MUTED,width=1080)
-
-text(40,543,"Test accuracy",24,bold=True,width=620)
-text(40,584,"Logistic regression · 34/45 correct",22,width=500)
-text(555,580,"75.56%",27,BLUE,True,width=105,align="right")
-box(40,617,620,24,PALE,"none",0)
-box(40,617,620*34/45,24,BLUE,"none",0)
-
-text(40,660,"All-positive baseline · 35/45 correct",22,width=510)
-text(555,656,"77.78%",27,TEAL,True,width=105,align="right")
-box(40,693,620,24,PALE,"none",0)
-box(40,693,620*35/45,24,TEAL,"none",0)
-for x, val, align in [(40,"0%","left"),(300,"50%","center"),(560,"100%","right")]:
-    text(x,729,val,21,MUTED,width=100,align=align)
-for x in (40,350,660):
-    line([(x,720),(x,725)],RULE,1.3)
-
-icon("chart",42,790,BLUE)
-text(88,787,"AUROC 0.5629",26,BLUE,True,width=560)
-text(88,825,"Weak ranking of positive and negative cases",22,MUTED,width=570)
-text(40,871,"One fewer correct prediction than the all-positive baseline.",21,width=1080)
-
-line([(712,543),(712,852)],RULE,1.2)
-icon("people",753,544,TEAL)
-text(798,542,"Actual positive",22,width=225)
-text(1020,539,"35/45",27,TEAL,True,width=140,align="right")
-text(798,578,"Predicted positive",22,width=230)
-text(1020,575,"38/45",27,BLUE,True,width=140,align="right")
-
-text(758,634,"Confusion matrix",24,bold=True,width=400)
-text(851,679,"Predicted +",21,MUTED,width=145,align="center")
-text(1013,679,"Predicted −",21,MUTED,width=145,align="center")
-text(753,731,"Actual +",21,MUTED,width=94)
-text(753,802,"Actual −",21,MUTED,width=94)
-for x,y,label,fill,col in [(851,713,"TP 31","#EDF5F3",TEAL),(1013,713,"FN 4","#FCF6EC",AMBER),(851,784,"FP 7","#FCF6EC",AMBER),(1013,784,"TN 3","#EDF5F3",TEAL)]:
-    box(x,y,145,61,fill,"none",5)
-    text(x,y+17,label,26,col,True,width=145,align="center")
+box(40,810,1120,116,"#F1F7F5")
+icon("chart",60,829,TEAL)
+text(108,826,"4  Follow-up analysis: reconstruct the same 45 VA test cases",24,TEAL,True,width=1030)
+text(108,863,"Model: 34/45 correct  ·  Predict all positive: 35/45 correct",23,bold=True,width=1030)
+text(108,894,"Finding: the model did not outperform this simple baseline on accuracy.",21,width=1030)
 
 OUT.mkdir(parents=True,exist_ok=True)
 for name, tree in [("fig5_heart_disease.svg",svg),("fig5_heart_disease.drawio",mx)]:

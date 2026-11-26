@@ -15,7 +15,7 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 
 ## Assets
 
-- `figures/fig5_heart_disease.drawio` — editable source for the two-panel scientific figure.
+- `figures/fig5_heart_disease.drawio` — editable source for the research-workflow figure.
 - `figures/fig5_heart_disease.svg` — vector preview and web-compatible export.
 - `figures/fig5_heart_disease.pdf` — publication export referenced by `appendix.tex`.
 - `screenshots/project-handoff.png` — task handoff and accepted local reports.
@@ -23,7 +23,7 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 
 These two operation-record panels appear together in the manuscript's SciForge operation-record figure.
 
-The scientific figure uses small vector icons for data, reports, review, revision and the VA audit. Its upper panel describes the original collaboration; the lower panel separately dates the supplementary computation. All Draw.io shapes, icon strokes, labels and connectors are native editable objects. The accuracy bars share a zero-based 0–100% scale.
+The figure follows the research question through study setup, three local analyses, shared reporting, cross-review and revision. A dashed branch connects the review question to the subsequent VA check. Dates and detailed diagnostic statistics remain in the text; the figure retains only the numbers needed to explain the research transition. All Draw.io shapes, icon strokes, labels and connectors are native editable objects.
 
 To regenerate matching vector sources from the common layout:
 

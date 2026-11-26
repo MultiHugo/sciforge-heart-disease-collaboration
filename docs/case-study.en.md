@@ -30,7 +30,7 @@ A separately dated, hash-verified reconstruction on 2026-11-22 tested the VA con
 
 ![Cross-review and follow-up analysis of the VA result](../paper/case-02-heart-disease/figures/fig5_heart_disease.svg)
 
-**Figure 2.** Panel a shows the original collaborative path; panel b shows the separately dated VA diagnostic.
+**Figure 2.** Study setup, role-specific local analyses, shared reporting and cross-review in SciForge. The review changes the interpretation of VA accuracy and motivates a subsequent check against an all-positive baseline. One operator enacted the three roles; the follow-up analysis was performed after the original collaboration.
 
 ## Case value and boundaries
 
