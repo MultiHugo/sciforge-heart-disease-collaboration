@@ -10,7 +10,7 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 \input{cases/case-02-heart-disease/appendix}
 ```
 
-`appendix.tex` contains Case 5 in Appendix E, including the compact research workflow (Fig. E1), quantitative interpretation, collaboration value, and data/code availability. The workflow occupies 80% of the appendix text width and shares a page with the narrative. `body.tex` is an optional short summary retained for reuse; it is not included in the current main text. The package directory is retained for stable paths.
+`appendix.tex` contains Case 5 in Appendix E, including the compact research workflow (Fig. E1), the shared-note review screenshot (Fig. E2), quantitative interpretation, collaboration value, and data/code availability. The workflow occupies 80% of the appendix text width and shares a page with the narrative. `body.tex` is an optional short summary retained for reuse; it is not included in the current main text. The package directory is retained for stable paths.
 
 ## Assets
 
