@@ -18,17 +18,13 @@ The project board linked each partition to a named role, local report and accept
 
 \begin{figure}[htbp]
   \centering
-  \begin{minipage}[t]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{cases/case-02-heart-disease/screenshots/project-handoff.png}
-    \textbf{a} Project handoff and accepted local reports (original demonstration screenshot).
-  \end{minipage}\hfill
-  \begin{minipage}[t]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{cases/case-02-heart-disease/screenshots/metric-review.png}
-    \textbf{b} Shared-note review of the VA metrics (original demonstration screenshot).
-  \end{minipage}
-  \caption{SciForge operation records for the Heart Disease case. Both panels are original demonstration screenshots. Panel~a records the Chinese collaboration interface; panel~b already shows English plug-in controls around the unchanged historical note and comments. Historical project names, comments and note content were not translated or reconstructed.}
+  \includegraphics[width=\linewidth,trim=390 450 220 0,clip]{cases/case-02-heart-disease/screenshots/project-handoff.png}
+  \textbf{a} Project handoff and accepted local reports (original demonstration screenshot; disclosed crop).
+
+  \vspace{0.8em}
+  \includegraphics[width=0.75\linewidth,trim=380 0 0 0,clip]{cases/case-02-heart-disease/screenshots/metric-review.png}
+  \textbf{b} Shared-note review of the VA metrics (original demonstration screenshot; disclosed crop).
+  \caption{SciForge operation records for the Heart Disease case. Both panels are disclosed crops from the original, pointer-free demonstration screenshots; no interface or user-authored content was altered. Panel~a records the Chinese collaboration interface. Panel~b already shows English plug-in controls around the unchanged historical note and comments.}
   \label{fig:case-heart-operations}
 \end{figure}
 
@@ -50,7 +46,7 @@ Cleaning retained all 303 Cleveland rows, 261 of 294 Hungarian rows and 130 of 2
   \end{tabular}
 \end{table}
 
-The supplementary recomputation made the VA concern more concrete (Fig.~\ref{fig:case-heart-disease}). Of 45 test samples, 35 were positive (77.78\%) and 10 were negative. At a threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives, with 31 true positives, four false negatives, three true negatives and seven false positives. Its accuracy was 75.56\%, below the 77.78\% accuracy of predicting every sample as positive, while AUROC remained 0.5629. Accuracy alone would therefore have obscured weak ranking performance and limited recognition of negatives. The result does not determine whether missingness, sample composition, feature shift or model specification caused the weak VA discrimination; it defines a testable next step: align preprocessing and evaluation, repeat the split, and quantify uncertainty before comparing local and collaborative training strategies.
+The 2026-11-22 supplementary recomputation made the VA concern more concrete (Fig.~\ref{fig:case-heart-disease}). Of 45 test samples, 35 were positive (77.78\%) and 10 were negative. At a threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives, with 31 true positives, four false negatives, three true negatives and seven false positives. Its accuracy was 75.56\%, below the 77.78\% accuracy of predicting every sample as positive, while AUROC remained 0.5629. Accuracy alone would therefore have obscured weak ranking performance and limited recognition of negatives. The result does not determine whether missingness, sample composition, feature shift or model specification caused the weak VA discrimination; it defines a testable next step: align preprocessing and evaluation, repeat the split, and quantify uncertainty before comparing local and collaborative training strategies.
 
 \begin{figure}[htbp]
   \centering
@@ -60,7 +56,7 @@ The supplementary recomputation made the VA concern more concrete (Fig.~\ref{fig
 \end{figure}
 
 \subsection{Collaboration value}
-The case connected three local analyses to one reviewable research object. Role~C's question changed what the team reported: the final record no longer treated accuracy as a sufficient summary and instead exposed the relationship among prevalence, thresholded predictions and discrimination. The handoff is traceable from local report to acceptance, shared-note revision and later quantitative audit. The scientific contribution is modest but specific---a cross-review step converted a potentially reassuring VA accuracy into a falsifiable evaluation concern. The product contribution is that the question, revision and evidence remain attached to the same project rather than being separated across chat, files and an unversioned final report.
+The case connected three local analyses to one reviewable research object. Role~C's question changed the original shared record: it paired retained-cohort prevalence with accuracy and AUROC and identified uncertainty analysis as follow-up work. The separately dated 2026-11-22 repository audit later quantified the thresholded prediction imbalance; it was not part of the original project record. The handoff remains traceable from local report to acceptance and shared-note revision, while the supplementary evidence remains traceable through the versioned repository. The scientific contribution is modest but specific---cross-review converted a potentially reassuring VA accuracy into a falsifiable evaluation concern.
 
 \subsection{Data and code availability}
 The three source partitions are publicly available from the UCI Machine Learning Repository, Heart Disease dataset, DOI: \href{https://doi.org/10.24432/C52P4X}{10.24432/C52P4X}. The analysis script, original aggregate results, SHA-256 provenance, supplementary VA audit and reproduction command are available in the \href{https://github.com/MultiHugo/sciforge-heart-disease-collaboration}{public Heart Disease case repository}. The repository reproduces the numerical case without SciForge credentials. This custom NumPy baseline did not perform federated training, joint-versus-local comparison, repeated splits, confidence intervals or external clinical validation, and its outputs are not intended for clinical decision-making.

@@ -1,12 +1,13 @@
 import json
 import html
 import re
+import struct
+import sys
+import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
-
-from PIL import Image
-
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE_DIR = ROOT / "paper" / "case-02-heart-disease"
@@ -27,6 +28,23 @@ class PaperCaseContractTests(unittest.TestCase):
     def read_case_file(self, path: Path) -> str:
         self.assertTrue(path.is_file(), f"missing paper-case file: {path.relative_to(ROOT)}")
         return path.read_text(encoding="utf-8")
+
+    def assert_existing_contract_detects_mutation(self, body: str, appendix: str, methods: tuple[str, ...]):
+        """Run selected contract checks against mutated in-memory artifacts."""
+        with tempfile.TemporaryDirectory(dir=ROOT / ".superpowers") as folder:
+            temp = Path(folder)
+            body_path = temp / "body.tex"
+            appendix_path = temp / "appendix.tex"
+            body_path.write_text(body, encoding="utf-8")
+            appendix_path.write_text(appendix, encoding="utf-8")
+            module = sys.modules[__name__]
+            failures = 0
+            with mock.patch.object(module, "BODY", body_path), mock.patch.object(module, "APPENDIX", appendix_path):
+                for method in methods:
+                    result = unittest.TestResult()
+                    type(self)(method).run(result)
+                    failures += len(result.failures) + len(result.errors)
+        self.assertGreater(failures, 0, "contract accepted a known-invalid mutation")
 
     def test_reference_matched_narrative_structure(self):
         """Catches missing, undersized, or structurally incompatible case text."""
@@ -59,7 +77,7 @@ class PaperCaseContractTests(unittest.TestCase):
             "hungarian": (261, 171, 90, 0.37547892720306514, 0.9044117647058824, 0.8333333333333334),
             "va": (130, 85, 45, 0.7769230769230769, 0.5628571428571428, 0.7555555555555555),
         }
-        display_rows = {
+        expected_rows = {
             "cleveland": ("Cleveland", "303", "199 / 104", "45.87", "0.8787", "0.7788"),
             "hungarian": ("Hungarian", "261", "171 / 90", "37.55", "0.9044", "0.8333"),
             "va": ("VA", "130", "85 / 45", "77.69", "0.5629", "0.7556"),
@@ -72,12 +90,23 @@ class PaperCaseContractTests(unittest.TestCase):
                 result["positive_rate"], result["auroc"], result["accuracy"],
             )
             self.assertEqual(observed, values)
-            for cell in display_rows[center]:
-                self.assertIn(cell, appendix)
 
-        scoped_text = appendix.lower()
-        self.assertRegex(scoped_text, r"positiv(?:e proportion|ity).{0,180}retained", msg="retained-sample positivity scope is missing")
-        self.assertRegex(scoped_text, r"auroc.{0,120}(?:test set|test-set)", msg="test-set metric scope is missing")
+        table = re.search(r"\\begin\{tabular\}.*?\\end\{tabular\}", appendix, re.DOTALL)
+        self.assertIsNotNone(table, "baseline table is missing")
+        rows = re.findall(
+            r"(?m)^\s*(Cleveland|Hungarian|VA)\s*&\s*(\d+)\s*&\s*(\d+\s*/\s*\d+)\s*&\s*([0-9.]+)\s*&\s*([0-9.]+)\s*&\s*([0-9.]+)\s*\\\\",
+            table.group(0),
+        )
+        observed_rows = {row[0].lower(): row for row in rows}
+        self.assertEqual(observed_rows, expected_rows)
+
+        caption = re.search(
+            r"\\caption\{Local logistic-regression baselines(.*?)\}", appendix, re.DOTALL
+        )
+        self.assertIsNotNone(caption)
+        scoped_text = caption.group(1).lower()
+        self.assertRegex(scoped_text, r"positiv(?:e proportion|ity).*all retained samples")
+        self.assertRegex(scoped_text, r"auroc and accuracy.*(?:test set|test-set)")
 
     def test_va_supplementary_recomputation_is_temporally_separated(self):
         """Catches backdating the later VA audit into the original demonstration."""
@@ -93,10 +122,36 @@ class PaperCaseContractTests(unittest.TestCase):
             ),
             (45, 35, 38, 31, 4, 3, 7),
         )
-        combined = body + "\n" + appendix
-        for value in ("2026-11-22", "35", "45", "77.78", "38", "84.44", "75.56", "0.5629"):
-            self.assertIn(value, combined)
-        self.assertRegex(combined, r"(?:later|subsequent|supplementary) recomput", msg="later recomputation is not distinguished")
+        body_audit = next(
+            (paragraph for paragraph in body.split("\n\n") if "later recomputation" in paragraph.lower()),
+            "",
+        )
+        appendix_audit = next(
+            (
+                paragraph
+                for paragraph in appendix.split("\n\n")
+                if "supplementary recomputation" in paragraph.lower() and "35" in paragraph
+            ),
+            "",
+        )
+        self.assertTrue(body_audit, "body audit passage is missing")
+        self.assertTrue(appendix_audit, "appendix audit passage is missing")
+        for value in ("2026-11-22", "35", "45", "77.78", "38", "75.56", "0.5629"):
+            self.assertIn(value, body_audit)
+            self.assertIn(value, appendix_audit)
+        self.assertIn("84.44", appendix_audit)
+
+    def test_collaboration_claims_respect_demonstration_boundary(self):
+        """Catches claims of federated training or institutional isolation that were not tested."""
+        body = self.read_case_file(BODY)
+        appendix = self.read_case_file(APPENDIX)
+        combined = (body + "\n" + appendix).lower()
+        self.assertIn("one operator", combined)
+        self.assertRegex(combined, r"(?:one windows device|single-device)")
+        self.assertNotRegex(combined, r"(?:completed|successful|performed) federated training")
+        self.assertNotRegex(combined, r"(?:validated|proved|established) institutional (?:data )?isolation")
+        self.assertRegex(combined, r"(?:not federated training|did not perform federated training)")
+        self.assertRegex(combined, r"(?:not .*institutional data isolation|did not .*institutional isolation)")
 
     def test_cross_references_use_the_migrated_case_labels(self):
         """Catches labels that cannot be wired into the migrated Overleaf tree."""
@@ -111,6 +166,20 @@ class PaperCaseContractTests(unittest.TestCase):
             "tab:case-heart-baselines",
         ):
             self.assertEqual(appendix.count(rf"\label{{{label}}}"), 1)
+
+        combined = body + "\n" + appendix
+        labels = re.findall(r"\\label\{([^}]+)\}", combined)
+        self.assertEqual(len(labels), len(set(labels)), "duplicate LaTeX label")
+        references = re.findall(r"\\ref\{([^}]+)\}", combined)
+        self.assertFalse(set(references) - set(labels), "undefined LaTeX reference")
+
+        prefix = "cases/case-02-heart-disease/"
+        graphics = re.findall(r"\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}", combined)
+        self.assertTrue(graphics)
+        for target in graphics:
+            self.assertTrue(target.startswith(prefix), f"non-portable graphics root: {target}")
+            local = CASE_DIR / target.removeprefix(prefix)
+            self.assertTrue(local.is_file(), f"missing graphics target: {target}")
 
     def test_vector_sources(self):
         """Catches non-editable exports or a mismatch between Draw.io and SVG labels."""
@@ -154,10 +223,12 @@ class PaperCaseContractTests(unittest.TestCase):
         for name in ("project-handoff.png", "metric-review.png"):
             path = screenshots / name
             self.assertTrue(path.is_file(), f"missing screenshot: {path.relative_to(ROOT)}")
-            with Image.open(path) as image:
-                self.assertEqual(image.format, "PNG")
-                self.assertGreaterEqual(image.width, 1200)
-                self.assertGreaterEqual(image.height, 700)
+            data = path.read_bytes()
+            self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertEqual(data[12:16], b"IHDR")
+            width, height = struct.unpack(">II", data[16:24])
+            self.assertGreaterEqual(width, 1200)
+            self.assertGreaterEqual(height, 700)
             include_at = appendix.index(f"screenshots/{name}")
             panel_text = appendix[include_at:include_at + 420]
             self.assertRegex(
@@ -189,6 +260,73 @@ class PaperCaseContractTests(unittest.TestCase):
         public_report = (ROOT / "docs" / "case-study.en.md").read_text(encoding="utf-8")
         self.assertIn("paper/case-02-heart-disease/README.md", root_readme)
         self.assertIn("../paper/case-02-heart-disease/README.md", public_report)
+
+    def test_contract_rejects_partition_value_swaps(self):
+        body = BODY.read_text(encoding="utf-8")
+        appendix = APPENDIX.read_text(encoding="utf-8")
+        appendix = appendix.replace(
+            "Cleveland & 303 & 199 / 104 & 45.87 & 0.8787 & 0.7788",
+            "Cleveland & 303 & 199 / 104 & 45.87 & 0.9044 & 0.7788",
+        ).replace(
+            "Hungarian & 261 & 171 / 90 & 37.55 & 0.9044 & 0.8333",
+            "Hungarian & 261 & 171 / 90 & 37.55 & 0.8787 & 0.8333",
+        )
+        self.assert_existing_contract_detects_mutation(
+            body, appendix, ("test_versioned_baselines_are_reported_with_their_scopes",)
+        )
+
+    def test_contract_rejects_displaced_audit_date(self):
+        body = BODY.read_text(encoding="utf-8").replace("2026-11-22", "2026-11-13")
+        appendix = APPENDIX.read_text(encoding="utf-8").replace("2026-11-22", "2026-11-13")
+        appendix += "\nEvidence package availability date: 2026-11-22.\n"
+        self.assert_existing_contract_detects_mutation(
+            body, appendix, ("test_va_supplementary_recomputation_is_temporally_separated",)
+        )
+
+    def test_contract_rejects_collaboration_overclaims(self):
+        body = BODY.read_text(encoding="utf-8").replace(
+            "This single-device demonstration tested collaborative interpretation, not federated training or institutional data isolation.",
+            "This multi-institutional deployment completed federated training and validated institutional data isolation.",
+        )
+        appendix = APPENDIX.read_text(encoding="utf-8")
+        self.assert_existing_contract_detects_mutation(
+            body,
+            appendix,
+            (
+                "test_reference_matched_narrative_structure",
+                "test_cross_references_use_the_migrated_case_labels",
+                "test_va_supplementary_recomputation_is_temporally_separated",
+                "test_collaboration_claims_respect_demonstration_boundary",
+            ),
+        )
+
+    def test_contract_rejects_broken_graphics_and_undefined_refs(self):
+        body = BODY.read_text(encoding="utf-8")
+        appendix = APPENDIX.read_text(encoding="utf-8").replace(
+            "cases/case-02-heart-disease/figures/", "cases/missing/figures/"
+        )
+        appendix += "\nSee Fig.~\\ref{fig:undefined}.\n"
+        self.assert_existing_contract_detects_mutation(
+            body, appendix, ("test_cross_references_use_the_migrated_case_labels",)
+        )
+
+    def test_publication_assets_preserve_legibility_at_manuscript_width(self):
+        """Catches source type and screenshot layouts that collapse below readable size."""
+        svg = (CASE_DIR / "figures" / "fig5_heart_disease.svg").read_text(encoding="utf-8")
+        source_font_sizes = [int(value) for value in re.findall(r"font:(?:700 )?(\d+)px", svg)]
+        self.assertTrue(source_font_sizes)
+        self.assertGreaterEqual(min(source_font_sizes), 20)
+
+        appendix = APPENDIX.read_text(encoding="utf-8")
+        self.assertNotIn(r"{0.49\textwidth}", appendix)
+        for name in ("project-handoff.png", "metric-review.png"):
+            options = re.search(
+                rf"\\includegraphics\[([^]]+)\]\{{cases/case-02-heart-disease/screenshots/{re.escape(name)}\}}",
+                appendix,
+            )
+            self.assertIsNotNone(options)
+            self.assertIn("trim=", options.group(1))
+            self.assertIn("clip", options.group(1))
 
 
 if __name__ == "__main__":
