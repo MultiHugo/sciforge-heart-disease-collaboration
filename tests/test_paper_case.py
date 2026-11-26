@@ -71,8 +71,9 @@ class PaperCaseContractTests(unittest.TestCase):
             for cell in display_rows[center]:
                 self.assertIn(cell, appendix)
 
-        self.assertRegex(appendix, r"positiv(?:e proportion|ity).{0,180}retained", msg="retained-sample positivity scope is missing")
-        self.assertRegex(appendix, r"AUROC.{0,120}(?:test set|test-set)", msg="test-set metric scope is missing")
+        scoped_text = appendix.lower()
+        self.assertRegex(scoped_text, r"positiv(?:e proportion|ity).{0,180}retained", msg="retained-sample positivity scope is missing")
+        self.assertRegex(scoped_text, r"auroc.{0,120}(?:test set|test-set)", msg="test-set metric scope is missing")
 
     def test_va_supplementary_recomputation_is_temporally_separated(self):
         """Catches backdating the later VA audit into the original demonstration."""
