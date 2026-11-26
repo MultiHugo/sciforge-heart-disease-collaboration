@@ -1,6 +1,8 @@
 import json
+import html
 import re
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
@@ -107,6 +109,41 @@ class PaperCaseContractTests(unittest.TestCase):
             "tab:case-heart-baselines",
         ):
             self.assertEqual(appendix.count(rf"\label{{{label}}}"), 1)
+
+    def test_vector_sources(self):
+        """Catches non-editable exports or a mismatch between Draw.io and SVG labels."""
+        figures = CASE_DIR / "figures"
+        drawio = figures / "fig5_heart_disease.drawio"
+        svg = figures / "fig5_heart_disease.svg"
+        pdf = figures / "fig5_heart_disease.pdf"
+        for path in (drawio, svg, pdf):
+            self.assertTrue(path.is_file(), f"missing figure asset: {path.relative_to(ROOT)}")
+
+        drawio_root = ET.parse(drawio).getroot()
+        drawio_text = " ".join(
+            html.unescape(node.attrib.get("value", "")) for node in drawio_root.iter()
+        )
+        drawio_text = re.sub(r"<[^>]+>", " ", drawio_text)
+        svg_root = ET.parse(svg).getroot()
+        svg_text = " ".join(svg_root.itertext())
+        required = (
+            "a",
+            "b",
+            "Cleveland",
+            "Hungarian",
+            "VA",
+            "aggregate results only",
+            "35/45",
+            "38/45",
+            "75.56%",
+            "77.78%",
+            "AUROC 0.5629",
+        )
+        for label in required:
+            self.assertIn(label, drawio_text)
+            self.assertIn(label, svg_text)
+
+        self.assertTrue(pdf.read_bytes().startswith(b"%PDF-"), "figure PDF is not a valid PDF stream")
 
 
 if __name__ == "__main__":
