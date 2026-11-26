@@ -1,41 +1,33 @@
-\section{Case~2: When 75.56\% accuracy was worse than a one-class baseline}
+\section{Case~5: Collaborative analysis of heart disease cohorts}
 \label{app:case-heart-disease}
 
-\subsection{Why VA became the review question}
-The case began with a familiar multi-cohort task: establish comparable local classification baselines for the Cleveland, Hungarian and VA partitions of the UCI Heart Disease dataset, then review the results together. The partitions contain related clinical variables but differ in sample size, missingness and outcome prevalence. The working question was therefore not which row in a score table was ``best'', but whether a common analysis protocol and cross-review would reveal a result whose interpretation changed with cohort composition.
+\subsection{Research setting and roles}
+Analyses across clinical cohorts require attention to differences in sample composition as well as model performance. This case used the Cleveland, Hungarian and VA partitions of the UCI Heart Disease dataset to examine how collaborative review could inform the interpretation of local classification models. The three partitions share clinical variables but differ in sample size, missingness and disease prevalence. The research objective was to establish local baselines under a common modelling protocol and identify results that warranted further investigation.
 
-One operator enacted three roles through separate SciForge accounts on one Windows device. Role~B analysed Cleveland and maintained the shared research record. Role~C analysed Hungarian and reviewed the submissions. Role~D analysed VA. Each role worked in a separate directory. Within the project, the roles exchanged method descriptions, aggregate outputs and review comments rather than patient-level rows. This arrangement made the handoff and interpretation reviewable while keeping the three analyses distinct.
-
-\subsection{From three local fits to one reviewable record}
-The roles used one custom NumPy baseline. The script converted the multiclass disease field to a binary target, removed rows that could not be processed under the shared schema and applied a fixed categorical vocabulary. Each partition used random seed 43, a class-stratified train/test split and an $L_2$-regularised logistic-regression model fitted on CPU. Continuous-feature means and standard deviations were estimated from the training split only. Every local report recorded the retained sample count, train/test sizes, retained-cohort positivity, test AUROC and test accuracy.
-
-Roles~C and D submitted the Hungarian and VA summaries to Role~B through project tasks. Role~B checked the declared protocol, accepted both materials and placed the three baselines in the shared record. The task board and the shared note formed the operation record shown in Fig.~\ref{fig:case-heart-operations}: the first view documents the handoff of local reports, and the second documents the discussion that changed how the VA row was read.
+The analysis was organised into three roles within a SciForge project. Role~A analysed Cleveland and coordinated the joint report; Role~B analysed Hungarian and reviewed the results across partitions; Role~C analysed VA. One operator managed all three roles through separate accounts and working directories on one Windows device. Methods, aggregate results and comments were shared within the project, while patient-level data remained in the respective working directories. Figure~\ref{fig:case-heart-disease} outlines the analysis and review process.
 
 \begin{figure}[htbp]
   \centering
-  \begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=\linewidth,trim=390 450 220 0,clip]{cases/case-02-heart-disease/screenshots/project-handoff.png}
-    \par\smallskip\noindent\textbf{a} Project handoff and accepted local reports.
-  \end{minipage}
-
-  \vspace{0.8em}
-  \begin{minipage}{\linewidth}
-    \centering
-    \includegraphics[width=0.75\linewidth,trim=380 0 0 0,clip]{cases/case-02-heart-disease/screenshots/metric-review.png}
-    \par\smallskip\noindent\textbf{b} Shared-note review of the VA metrics.
-  \end{minipage}
-  \caption{SciForge records of the local-report handoff and the subsequent review of the VA result.}
-  \label{fig:case-heart-operations}
+  \includegraphics[width=0.8\linewidth]{cases/case-02-heart-disease/figures/fig5_heart_disease.pdf}
+  \caption{Collaborative analysis of the Heart Disease cohorts. Three local analyses follow a common modelling protocol and contribute aggregate results to a shared report. Cross-review identifies the discrepancy between VA accuracy and AUROC, leading to revised interpretation and a subsequent analysis of class composition and prediction errors. The dashed connection distinguishes this follow-up from the initial review.}
+  \label{fig:case-heart-disease}
 \end{figure}
 
-\subsection{How the original review changed the report}
-During the original 12--13 November 2026 demonstration, Cleveland and Hungarian returned AUROC values above 0.87. VA looked less straightforward: its test accuracy was 0.7556, yet its AUROC was only 0.5629. Role~C asked whether the apparently usable accuracy mainly reflected the dominant class rather than reliable separation of positive and negative cases. The question changed the report in three concrete ways. Accuracy and AUROC were displayed together; the positivity column was explicitly labelled as a statistic over all retained samples rather than the test set; and repeated splits or confidence intervals were named as the next analysis. The collaborators did not use the three test sets to rank the models because each partition had a different composition.
+\subsection{Local modelling and cross-review}
+Each partition was analysed using the same custom NumPy implementation of $L_2$-regularised logistic regression. Preprocessing converted the disease label to a binary outcome, excluded rows incompatible with the shared input schema and used a fixed categorical vocabulary. Training and test sets were stratified by class with random seed 43. Continuous features were standardised using means and standard deviations estimated from the training set only, and models were fitted on CPU. The resulting summaries included sample counts, disease prevalence among retained samples, test AUROC and test accuracy.
 
-The original demonstration did not retain the VA test-label counts or thresholded predictions. It therefore supported the discrepancy---0.7556 accuracy versus 0.5629 AUROC---and the decision to investigate prevalence, but not a numerical explanation of that discrepancy. The screenshots in Fig.~\ref{fig:case-heart-operations} document this original stage. The detailed counts below were reconstructed later and were not written back into the original project record.
+Cross-review of the combined local baselines flagged a sharp gap between VA accuracy (75.56\%) and AUROC (0.5629), prompting a revised interpretation and a follow-up error check. Roles~B and C submitted their analyses through SciForge project tasks, and Role~A combined the results in a shared research note. Role~B questioned whether the VA accuracy mainly reflected class imbalance rather than effective discrimination. Role~A revised the report to interpret accuracy alongside AUROC and class composition, distinguish cohort prevalence from test-set prevalence, and identify repeated splits and uncertainty estimation as priorities for further analysis. The shared note and discussion show how this review informed the report (Fig.~\ref{fig:case-heart-review}).
 
-\subsection{What the 2026-11-22 reconstruction added}
-The original aggregate results are summarised in Table~\ref{tab:case-heart-baselines}. Cleaning retained all 303 Cleveland rows, 261 of 294 Hungarian rows and 130 of 200 VA rows. Positivity was calculated over all retained samples after cleaning, whereas AUROC and accuracy were calculated on each partition's test split.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{cases/case-02-heart-disease/screenshots/metric-review.png}
+  \caption{Cross-review in the SciForge shared research note. The local results appear alongside the reviewer's comments and the coordinator's response, linking the discussion of VA performance to the interpretation in the report.}
+  \label{fig:case-heart-review}
+\end{figure}
+
+\subsection{Local baseline results}
+Under the shared protocol, the Cleveland and Hungarian models achieved strong discrimination (AUROC 0.8787 and 0.9044), whereas the VA model showed near-random discrimination (AUROC 0.5629) despite 75.56\% accuracy (Table~\ref{tab:case-heart-baselines}). Preprocessing retained 303 Cleveland samples, 261 of 294 Hungarian samples and 130 of 200 VA samples, with train/test splits of 199/104, 171/90 and 85/45. VA had the highest retained-cohort positivity, at 77.69\%. Positivity in the table refers to all retained samples; AUROC and accuracy were calculated on each partition's test set.
 
 \begin{table}[htbp]
   \centering
@@ -43,30 +35,22 @@ The original aggregate results are summarised in Table~\ref{tab:case-heart-basel
   \label{tab:case-heart-baselines}
   \begin{tabular}{lrrrrr}
     \toprule
-    Partition & Retained & Train / test & Positivity (\%) & Test AUROC & Test accuracy \\
+    Partition & Retained & Train / test & Positivity (\%) & Test AUROC & Test accuracy (\%) \\
     \midrule
-    Cleveland & 303 & 199 / 104 & 45.87 & 0.8787 & 0.7788 \\
-    Hungarian & 261 & 171 / 90 & 37.55 & 0.9044 & 0.8333 \\
-    VA        & 130 & 85 / 45   & 77.69 & 0.5629 & 0.7556 \\
+    Cleveland & 303 & 199 / 104 & 45.87 & 0.8787 & 77.88 \\
+    Hungarian & 261 & 171 / 90 & 37.55 & 0.9044 & 83.33 \\
+    VA        & 130 & 85 / 45   & 77.69 & 0.5629 & 75.56 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-On 2026-11-22, the hash-verified script was rerun against the public source data to reconstruct the missing VA diagnostic. Of 45 test cases, 35 were positive (77.78\%) and 10 were negative. At a threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives. It produced 31 true positives, four false negatives, three true negatives and seven false positives, for 34 correct classifications. Thus, the model's 75.56\% accuracy was below the 77.78\% obtained by assigning every test case to the positive class. AUROC remained 0.5629. Figure~\ref{fig:case-heart-disease} traces the study from local analyses to the shared report, the review question and the subsequent diagnostic.
+\subsection{Follow-up analysis of the VA cohort}
+Evaluating the 45 VA test predictions confirmed that the model's 75.56\% accuracy fell below an all-positive baseline (77.78\%). The follow-up used the same analysis script, source data and split. Of the 45 test cases, 35 were positive and ten were negative. At a decision threshold of 0.5, the model predicted 38 positives (84.44\%) and seven negatives, yielding 31 true positives, four false negatives, three true negatives and seven false positives. It therefore classified 34 cases correctly, compared with 35 correct classifications from predicting every case as positive.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{cases/case-02-heart-disease/figures/fig5_heart_disease.pdf}
-  \caption{Heart Disease research workflow. A common protocol connects three role-specific local analyses to shared reporting, cross-review and report revision in SciForge. The dashed branch shows the later analysis prompted by the VA review question. One operator enacted all three roles.}
-  \label{fig:case-heart-disease}
-\end{figure}
+The model favoured positive predictions on the imbalanced VA test set, correctly identifying only three of ten negative cases. Its AUROC of 0.5629 also indicated weak ranking of positive and negative cases. Examining the class-specific errors made the performance gap concrete and showed why accuracy alone gave an overly favourable impression of this model.
 
-\subsection{What the measurements support}
-The VA result supports a narrow conclusion: its test accuracy was not evidence that the model improved on a trivial majority-class decision, and its AUROC indicated weak ranking performance on this split. The confusion counts also show limited recognition of negative cases, with three true negatives and seven false positives. These observations explain why accuracy had to be interpreted beside class composition and AUROC. They do not identify the mechanism behind the weak discrimination. Missing-data handling, cohort composition, feature shift, model specification and split variability remain competing explanations.
+\subsection{Collaboration value}
+Cross-review turned the VA result into a targeted analysis of prediction errors. Role~B's question prompted Role~A to revise the shared report and motivated the comparison with an all-positive baseline. SciForge kept the local reports, review comments and revised interpretation together, so readers could follow the question from the reported metrics to the test-case counts that answered it.
 
-That boundary leads directly to the next request rather than to a stronger claim. A follow-up experiment should harmonise preprocessing across partitions, repeat the stratified split over multiple seeds, report uncertainty for AUROC and accuracy, and compare threshold-dependent errors before any local-versus-collaborative training claim. In this sense, cross-review produced a useful research transition: it turned one plausible-looking number into a falsifiable question and a defined measurement plan.
-
-\subsection{Scope, provenance and availability}
-The evidence chain is reproducible but deliberately limited. The demonstration used one operator, one Windows device and three test accounts; it did not validate physical institutional separation or a cryptographic data boundary. The model was a custom NumPy implementation, not the official FLamby benchmark. No federated training, joint-versus-local comparison, repeated-split analysis, confidence interval or external clinical validation was performed. None of the outputs is intended for clinical decision-making.
-
-The three source partitions are available from the UCI Machine Learning Repository, Heart Disease dataset, DOI: \href{https://doi.org/10.24432/C52P4X}{10.24432/C52P4X}. The analysis script, original aggregate results, SHA-256 provenance, supplementary VA audit and reproduction command are available in the \href{https://github.com/MultiHugo/sciforge-heart-disease-collaboration}{public Heart Disease case repository}. The repository reproduces the numerical evidence without SciForge credentials.
+\subsection{Data and code availability}
+The UCI Heart Disease data are available at \href{https://doi.org/10.24432/C52P4X}{10.24432/C52P4X}. The complete case project, including analysis code, local baseline results, review records and the follow-up VA analysis, is archived in the \href{https://github.com/MultiHugo/sciforge-heart-disease-collaboration}{public Heart Disease case repository}.

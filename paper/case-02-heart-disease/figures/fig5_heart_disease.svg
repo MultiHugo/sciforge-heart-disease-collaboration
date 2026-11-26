@@ -23,7 +23,7 @@
   <polyline points="77,368 78,360 82,357 86,357 90,360 91,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="93,368 94,360 98,357 102,357 106,360 107,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <text x="120" y="358.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">Cleveland</text>
-  <text x="76" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">B · analyst and coordinator</text>
+  <text x="76" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">A · analyst and coordinator</text>
   <text x="76" y="426.8" fill="#182D40" text-anchor="start" style="font:20px Arial, Helvetica, sans-serif">Train and evaluate a local model</text>
   <rect x="438" y="320" width="324" height="137" rx="8" fill="#FFFFFF" stroke="#D4DFE6" stroke-width="1.4" />
   <ellipse cx="462.0" cy="347.0" rx="5.0" ry="5.0" fill="none" stroke="#286390" stroke-width="2" />
@@ -31,7 +31,7 @@
   <polyline points="455,368 456,360 460,357 464,357 468,360 469,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="471,368 472,360 476,357 480,357 484,360 485,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <text x="498" y="358.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">Hungarian</text>
-  <text x="454" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">C · analyst and reviewer</text>
+  <text x="454" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">B · analyst and reviewer</text>
   <text x="454" y="426.8" fill="#182D40" text-anchor="start" style="font:20px Arial, Helvetica, sans-serif">Train and evaluate a local model</text>
   <rect x="816" y="320" width="324" height="137" rx="8" fill="#FFFFFF" stroke="#D4DFE6" stroke-width="1.4" />
   <ellipse cx="840.0" cy="347.0" rx="5.0" ry="5.0" fill="none" stroke="#286390" stroke-width="2" />
@@ -39,7 +39,7 @@
   <polyline points="833,368 834,360 838,357 842,357 846,360 847,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="849,368 850,360 854,357 858,357 862,360 863,368" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <text x="876" y="358.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">VA</text>
-  <text x="832" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">D · analyst</text>
+  <text x="832" y="391.64" fill="#286390" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">C · analyst</text>
   <text x="832" y="426.8" fill="#182D40" text-anchor="start" style="font:20px Arial, Helvetica, sans-serif">Train and evaluate a local model</text>
   <polyline points="222,457 222,493 978,493 978,457" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="600,457 600,493" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
@@ -54,21 +54,21 @@
   <polyline points="84,633 97,633" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="84,639 97,639" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="84,644 92,644" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
-  <text x="115" y="637.48" fill="#286390" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">B combines reports</text>
+  <text x="115" y="637.48" fill="#286390" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">A combines reports</text>
   <text x="76" y="678.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Three local baselines in</text>
   <text x="76" y="705.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">one shared research record</text>
   <rect x="438" y="603" width="324" height="125" rx="8" fill="#FCF8F0" stroke="#D4DFE6" stroke-width="1.4" />
   <ellipse cx="464.5" cy="630.5" rx="10.5" ry="10.5" fill="none" stroke="#946123" stroke-width="2" />
   <polyline points="473,639 482,648" fill="none" stroke="#946123" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="460,630 464,634 470,627" fill="none" stroke="#946123" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
-  <text x="493" y="637.48" fill="#946123" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">C questions VA accuracy</text>
+  <text x="493" y="637.48" fill="#946123" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">B questions VA accuracy</text>
   <text x="454" y="678.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">75.56% correct, yet weak</text>
   <text x="454" y="705.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">discrimination (AUROC 0.5629)</text>
   <rect x="816" y="603" width="324" height="125" rx="8" fill="#F1F7F5" stroke="#D4DFE6" stroke-width="1.4" />
   <polyline points="835,620 851,620 858,627 858,648 835,648 835,620" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="851,620 851,627 858,627" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
   <polyline points="840,639 845,644 854,633" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />
-  <text x="871" y="637.48" fill="#25796F" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">B revises the report</text>
+  <text x="871" y="637.48" fill="#25796F" text-anchor="start" style="font:700 22px Arial, Helvetica, sans-serif">A revises the report</text>
   <text x="832" y="678.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Add class balance and AUROC;</text>
   <text x="832" y="705.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">propose repeated-split checks</text>
   <polyline points="384,667 435,667" fill="none" stroke="#286390" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="none" />

@@ -4,14 +4,13 @@ This directory contains the English paper case on cross-review of local models a
 
 ## Add to the Overleaf project
 
-Copy this directory to `cases/case-02-heart-disease/` in the paper project, preserving all filenames. Then include:
+Copy this directory to `cases/case-02-heart-disease/` in the paper project, preserving all filenames. Include only the appendix after the manuscript appendix setup:
 
 ```tex
-\input{cases/case-02-heart-disease/body}
 \input{cases/case-02-heart-disease/appendix}
 ```
 
-`body.tex` is the approximately 200-word Results summary. `appendix.tex` contains the complete case narrative, operation records, quantitative interpretation, collaboration value, and data/code availability statement.
+`appendix.tex` contains Case 5 in Appendix E, including the compact research workflow (Fig. E1), quantitative interpretation, collaboration value, and data/code availability. The workflow occupies 80% of the appendix text width and shares a page with the narrative. `body.tex` is an optional short summary retained for reuse; it is not included in the current main text. The package directory is retained for stable paths.
 
 ## Assets
 
@@ -21,9 +20,9 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 - `screenshots/project-handoff.png` — task handoff and accepted local reports.
 - `screenshots/metric-review.png` — shared-note review of the VA metrics.
 
-These two operation-record panels appear together in the manuscript's SciForge operation-record figure.
+The appendix includes the shared-note review screenshot. Historical screenshots and research records retain their original account labels; the paper uses A (Cleveland), B (Hungarian) and C (VA), corresponding to historical B, C and D respectively.
 
-The figure follows the research question through study setup, three local analyses, shared reporting, cross-review and revision. A dashed branch connects the review question to the subsequent VA check. Dates and detailed diagnostic statistics remain in the text; the figure retains only the numbers needed to explain the research transition. All Draw.io shapes, icon strokes, labels and connectors are native editable objects.
+The figure follows the research question through study setup, three local analyses, shared reporting, cross-review and revision. A dashed branch connects the review question to the subsequent VA check. Detailed diagnostic statistics remain in the text; the figure retains only the numbers needed to explain the research transition. All Draw.io shapes, icon strokes, labels and connectors are native editable objects.
 
 To regenerate matching vector sources from the common layout:
 

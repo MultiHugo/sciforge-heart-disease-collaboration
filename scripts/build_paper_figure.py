@@ -115,7 +115,7 @@ line([(600,215),(600,250)],BLUE,1.8,True)
 box(40,260,1120,217,"#FAFCFD")
 text(60,274,"2  Run local analyses in separate workspaces",24,BLUE,True,width=1080)
 
-for x,place,role in [(60,"Cleveland","B · analyst and coordinator"),(438,"Hungarian","C · analyst and reviewer"),(816,"VA","D · analyst")]:
+for x,place,role in [(60,"Cleveland","A · analyst and coordinator"),(438,"Hungarian","B · analyst and reviewer"),(816,"VA","C · analyst")]:
     box(x,320,324,137)
     icon("people",x+16,339)
     text(x+60,337,place,25,bold=True,width=250)
@@ -129,9 +129,9 @@ text(420,505,"Share methods and aggregate results only",22,BLUE,width=740)
 box(40,547,1120,202,"#FAFCFD")
 text(60,561,"3  Review and revise in the SciForge project",24,BLUE,True,width=1080)
 for x,title,name,col,fill,lines in [
-    (60,"B combines reports","report",BLUE,PALE,["Three local baselines in","one shared research record"]),
-    (438,"C questions VA accuracy","review",AMBER,"#FCF8F0",["75.56% correct, yet weak","discrimination (AUROC 0.5629)"]),
-    (816,"B revises the report","check",TEAL,"#F1F7F5",["Add class balance and AUROC;","propose repeated-split checks"]),
+    (60,"A combines reports","report",BLUE,PALE,["Three local baselines in","one shared research record"]),
+    (438,"B questions VA accuracy","review",AMBER,"#FCF8F0",["75.56% correct, yet weak","discrimination (AUROC 0.5629)"]),
+    (816,"A revises the report","check",TEAL,"#F1F7F5",["Add class balance and AUROC;","propose repeated-split checks"]),
 ]:
     box(x,603,324,125,fill)
     icon(name,x+14,618,col)

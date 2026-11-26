@@ -100,7 +100,7 @@
         <mxCell id="21" value="Cleveland" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=25;fontStyle=1;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="120" y="337" width="250" height="31.25" as="geometry" />
         </mxCell>
-        <mxCell id="22" value="B · analyst and coordinator" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="22" value="A · analyst and coordinator" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="76" y="374" width="294" height="26.25" as="geometry" />
         </mxCell>
         <mxCell id="23" value="Train and evaluate a local model" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -142,7 +142,7 @@
         <mxCell id="29" value="Hungarian" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=25;fontStyle=1;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="498" y="337" width="250" height="31.25" as="geometry" />
         </mxCell>
-        <mxCell id="30" value="C · analyst and reviewer" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="30" value="B · analyst and reviewer" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="454" y="374" width="294" height="26.25" as="geometry" />
         </mxCell>
         <mxCell id="31" value="Train and evaluate a local model" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -184,7 +184,7 @@
         <mxCell id="37" value="VA" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=25;fontStyle=1;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="876" y="337" width="250" height="31.25" as="geometry" />
         </mxCell>
-        <mxCell id="38" value="D · analyst" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="38" value="C · analyst" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="832" y="374" width="294" height="26.25" as="geometry" />
         </mxCell>
         <mxCell id="39" value="Train and evaluate a local model" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=20;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -263,7 +263,7 @@
             <mxPoint x="92" y="644" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="52" value="B combines reports" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="52" value="A combines reports" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#286390;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="115" y="619" width="260" height="27.5" as="geometry" />
         </mxCell>
         <mxCell id="53" value="Three local baselines in" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -293,7 +293,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="59" value="C questions VA accuracy" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#946123;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="59" value="B questions VA accuracy" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#946123;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="493" y="619" width="260" height="27.5" as="geometry" />
         </mxCell>
         <mxCell id="60" value="75.56% correct, yet weak" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
@@ -335,7 +335,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="66" value="B revises the report" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#25796F;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="66" value="A revises the report" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#25796F;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="871" y="619" width="260" height="27.5" as="geometry" />
         </mxCell>
         <mxCell id="67" value="Add class balance and AUROC;" style="text;html=0;whiteSpace=nowrap;overflow=visible;align=left;verticalAlign=top;spacing=0;fontFamily=Arial;fontSize=21;fontStyle=0;fontColor=#182D40;strokeColor=none;fillColor=none;" vertex="1" parent="1">
