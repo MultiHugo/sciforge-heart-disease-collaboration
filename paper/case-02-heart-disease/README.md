@@ -1,6 +1,6 @@
 # Heart Disease paper case package
 
-This directory contains the publication-ready English case on cross-review of local models across the Cleveland, Hungarian and VA partitions of the UCI Heart Disease dataset. Its structure mirrors the pediatric-sepsis case in the migrated SciForge 2.0 paper.
+This directory contains the English paper case on cross-review of local models across the Cleveland, Hungarian and VA partitions of the UCI Heart Disease dataset. Like the Lean and CUDA cases in the SciForge paper, it follows a concrete research question through review, a change in interpretation, and the evidence supporting the final conclusion.
 
 ## Add to the Overleaf project
 
@@ -22,6 +22,17 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 - `screenshots/metric-review.png` — shared-note review of the VA metrics.
 
 These two operation-record panels appear together in the manuscript's SciForge operation-record figure.
+
+The scientific figure uses small vector icons for data, reports, review, revision and the VA audit. Its upper panel describes the original collaboration; the lower panel separately dates the supplementary computation. All Draw.io shapes, icon strokes, labels and connectors are native editable objects. The accuracy bars share a zero-based 0–100% scale.
+
+To regenerate matching vector sources from the common layout:
+
+```bash
+python scripts/build_paper_figure.py
+python scripts/build_paper_figure.py --pdf
+```
+
+The first command needs only Python's standard library. PDF export additionally requires Chrome or Chromium (`--chrome PATH` can select the executable). Regeneration replaces manual edits to the exported Draw.io file; keep any independently edited version separately.
 
 ## Numerical evidence
 

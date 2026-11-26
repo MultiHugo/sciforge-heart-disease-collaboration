@@ -4,3 +4,4 @@ reproduced/
 *.data
 .env
 .env.*
+.superpowers/

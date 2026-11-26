@@ -1,61 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Heart Disease collaboration and VA diagnostic</title>
-  <desc id="desc">Two-panel figure showing aggregate-only research handoffs across Cleveland, Hungarian and VA partitions, followed by a supplementary VA diagnostic.</desc>
-  <defs>
-    <style>
-      .title{font:700 30px Arial,Helvetica,sans-serif;fill:#17324D}.sub{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.h{font:700 24px Arial,Helvetica,sans-serif;fill:#17324D}.body{font:21px Arial,Helvetica,sans-serif;fill:#17324D}.small{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.card-label{font:20px Arial,Helvetica,sans-serif;fill:#17324D}.finding-title{font:700 21px Arial,Helvetica,sans-serif;fill:#17324D}.white{fill:#fff}.metric{font:700 34px Arial,Helvetica,sans-serif;fill:#17324D}.auroc-value{font:700 22px Arial,Helvetica,sans-serif;fill:#17324D}.center{text-anchor:middle}.left{text-anchor:start}
-    </style>
-    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2D6CDF"/></marker>
-    <marker id="arrow-teal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1F9D8B"/></marker>
-    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#E98B2A"/></marker>
-  </defs>
-  <rect width="1600" height="900" fill="#F7F9FC"/>
-  <rect x="20" y="20" width="940" height="860" rx="18" fill="#fff" stroke="#D6DDE7" stroke-width="2"/>
-  <rect x="980" y="20" width="600" height="860" rx="18" fill="#fff" stroke="#D6DDE7" stroke-width="2"/>
-
-  <text x="50" y="72" class="title">a  Collaborative handoff and cross-review</text>
-  <text x="50" y="102" class="sub">Single operator · three accounts · separate directories</text>
-  <rect x="60" y="140" width="250" height="130" rx="14" fill="#EAF1FF" stroke="#2D6CDF" stroke-width="2"/>
-  <text x="78" y="176" class="h">Role B · Cleveland</text><text x="78" y="211" class="body">303 retained</text><text x="78" y="241" class="body">AUROC 0.8787</text>
-  <rect x="345" y="140" width="250" height="130" rx="14" fill="#E8F7F4" stroke="#1F9D8B" stroke-width="2"/>
-  <text x="363" y="176" class="h">Role C · Hungarian</text><text x="363" y="211" class="body">261 retained</text><text x="363" y="241" class="body">AUROC 0.9044</text>
-  <rect x="630" y="140" width="250" height="130" rx="14" fill="#FFF3E8" stroke="#E98B2A" stroke-width="2"/>
-  <text x="648" y="176" class="h">Role D · VA</text><text x="648" y="211" class="body">130 retained</text><text x="648" y="241" class="body">AUROC 0.5629</text>
-
-  <path d="M185 270 V320 H400 V355" fill="none" stroke="#2D6CDF" stroke-width="3" marker-end="url(#arrow-blue)"/>
-  <path d="M470 270 V355" fill="none" stroke="#1F9D8B" stroke-width="3" marker-end="url(#arrow-teal)"/>
-  <path d="M755 270 V320 H580 V355" fill="none" stroke="#E98B2A" stroke-width="3" marker-end="url(#arrow-orange)"/>
-  <rect x="300" y="360" width="380" height="125" rx="14" fill="#F5F7FA" stroke="#6B7C93" stroke-width="2"/>
-  <text x="490" y="398" class="h center">SciForge project</text><text x="490" y="432" class="body center">aggregate results only</text><text x="490" y="462" class="small center">method · counts · test metrics</text>
-  <path d="M490 485 V548" fill="none" stroke="#2D6CDF" stroke-width="3" marker-end="url(#arrow-blue)"/>
-  <rect x="335" y="555" width="310" height="90" rx="14" fill="#EAF1FF" stroke="#2D6CDF" stroke-width="2"/>
-  <text x="490" y="594" class="h center">Role B integrates</text><text x="490" y="623" class="body center">shared research record</text>
-  <path d="M490 645 V692" fill="none" stroke="#E98B2A" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow-orange)"/>
-  <text x="505" y="678" class="small">review</text>
-  <rect x="80" y="700" width="800" height="105" rx="14" fill="#FFF8EC" stroke="#E98B2A" stroke-width="2"/>
-  <text x="102" y="738" class="h">Role C cross-review</text><text x="340" y="738" class="body">· Why accuracy 0.7556 with AUROC 0.5629?</text>
-  <text x="102" y="775" class="small">Revision: report prevalence, discrimination and uncertainty together</text>
-  <text x="490" y="850" class="small center" font-style="italic">Local row handling was not a validated security boundary.</text>
-
-  <text x="1010" y="72" class="title">b  VA diagnostic</text>
-  <text x="1010" y="102" class="sub">supplementary recomputation · 2026-11-22</text>
-  <text x="1020" y="155" class="h">Test labels · 45 samples</text>
-  <rect x="1020" y="175" width="375" height="52" rx="8" fill="#2D6CDF"/><rect x="1395" y="175" width="125" height="52" rx="8" fill="#DDE4ED" stroke="#B6C1CF"/>
-  <text x="1207.5" y="207" class="body white center">35/45 positive · 77.78%</text><text x="1457.5" y="207" class="small center" fill="#17324D">10 neg.</text>
-  <text x="1020" y="275" class="h">Thresholded predictions · 0.5</text>
-  <rect x="1020" y="295" width="422" height="52" rx="8" fill="#1F9D8B"/><rect x="1442" y="295" width="78" height="52" rx="8" fill="#DDE4ED" stroke="#B6C1CF"/>
-  <text x="1231" y="327" class="body white center">38/45 positive · 84.44%</text><text x="1481" y="327" class="small center" fill="#17324D">7 neg.</text>
-
-  <rect x="1020" y="395" width="155" height="100" rx="12" fill="#F5F7FA" stroke="#6B7C93" stroke-width="2"/><text x="1097.5" y="416" class="card-label center"><tspan x="1097.5">Model</tspan><tspan x="1097.5" dy="22">accuracy</tspan></text><text x="1097.5" y="482" class="metric center">75.56%</text>
-  <rect x="1190" y="395" width="155" height="100" rx="12" fill="#FFF8EC" stroke="#E98B2A" stroke-width="2"/><text x="1267.5" y="416" class="card-label center"><tspan x="1267.5">All-positive</tspan><tspan x="1267.5" dy="22">baseline</tspan></text><text x="1267.5" y="482" class="metric center">77.78%</text>
-  <rect x="1360" y="395" width="180" height="100" rx="12" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/><text x="1450" y="425" class="card-label center">Discrimination</text><text x="1450" y="469" class="auroc-value center">AUROC 0.5629</text>
-
-  <text x="1020" y="555" class="h">Confusion matrix</text>
-  <rect x="1020" y="575" width="115" height="70" rx="10" fill="#E8F7F4" stroke="#1F9D8B"/><rect x="1145" y="575" width="115" height="70" rx="10" fill="#FFF3E8" stroke="#E98B2A"/>
-  <rect x="1020" y="655" width="115" height="70" rx="10" fill="#FFF3E8" stroke="#E98B2A"/><rect x="1145" y="655" width="115" height="70" rx="10" fill="#E8F7F4" stroke="#1F9D8B"/>
-  <text x="1077" y="618" class="h center">TP 31</text><text x="1202" y="618" class="body center">FN 4</text><text x="1077" y="698" class="body center">FP 7</text><text x="1202" y="698" class="h center">TN 3</text>
-  <rect x="1275" y="555" width="265" height="170" rx="14" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/>
-  <text x="1297" y="592" class="finding-title">Representative finding</text><text x="1297" y="632" class="body"><tspan x="1297" dy="0">Accuracy was below the</tspan><tspan x="1297" dy="25">all-positive baseline;</tspan><tspan x="1297" dy="25">AUROC exposed</tspan><tspan x="1297" dy="25">weak ranking.</tspan></text>
-  <rect x="1020" y="775" width="520" height="60" rx="12" fill="#F5F7FA" stroke="#B6C1CF"/>
-  <text x="1280" y="812" class="body center">Next: harmonise · repeat splits · quantify uncertainty</text>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="910" viewBox="0 0 1200 910" role="img">
+  <title>Heart Disease: cross-review and the supplementary VA audit</title>
+  <desc>Three local analyses lead to a review of VA accuracy and AUROC. A later audit finds 34 correct predictions, versus 35 for the all-positive baseline, among 45 test cases.</desc>
+  <rect x="0" y="0" width="1200" height="910" rx="0" fill="#FFFFFF" stroke="none" stroke-width="1.4" />
+  <text x="36" y="52.519999999999996" fill="#182D40" text-anchor="start" style="font:700 28px Arial, Helvetica, sans-serif">a</text>
+  <text x="74" y="52.519999999999996" fill="#182D40" text-anchor="start" style="font:700 28px Arial, Helvetica, sans-serif">From local baselines to a shared question</text>
+  <text x="74" y="86.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Original collaboration · 12–13 Nov 2026</text>
+  <rect x="40" y="108" width="360" height="101" rx="8" fill="#FFFFFF" stroke="#D4DFE6" stroke-width="1.4" />
+  <ellipse cx="72.0" cy="131.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="59,131 59,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="85,131 85,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse cx="72.0" cy="149.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="59,138 64,141 72,142 80,141 85,138" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="101" y="144.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">Cleveland</text>
+  <text x="101" y="172.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Role B · coordinator</text>
+  <text x="101" y="198.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">303 retained · 104 test</text>
+  <rect x="420" y="108" width="360" height="101" rx="8" fill="#FFFFFF" stroke="#D4DFE6" stroke-width="1.4" />
+  <ellipse cx="452.0" cy="131.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="439,131 439,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="465,131 465,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse cx="452.0" cy="149.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="439,138 444,141 452,142 460,141 465,138" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="481" y="144.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">Hungarian</text>
+  <text x="481" y="172.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Role C · reviewer</text>
+  <text x="481" y="198.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">261 retained · 90 test</text>
+  <rect x="800" y="108" width="360" height="101" rx="8" fill="#FFFFFF" stroke="#D4DFE6" stroke-width="1.4" />
+  <ellipse cx="832.0" cy="131.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="819,131 819,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="845,131 845,149" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse cx="832.0" cy="149.0" rx="13.0" ry="4.0" fill="#FFFFFF" stroke="#286390" stroke-width="2" />
+  <polyline points="819,138 824,141 832,142 840,141 845,138" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="861" y="144.0" fill="#182D40" text-anchor="start" style="font:700 25px Arial, Helvetica, sans-serif">VA</text>
+  <text x="861" y="172.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Role D · analyst</text>
+  <text x="861" y="198.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">130 retained · 45 test</text>
+  <polyline points="220,209 220,235 980,235 980,209" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="600,209 600,235" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="220,235 220,275" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="216.52027572711015,267.79642318117857 220,275 223.47972427288985,267.79642318117857" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="600.0" y="262.64" fill="#286390" text-anchor="middle" style="font:21px Arial, Helvetica, sans-serif">aggregate results only</text>
+  <rect x="40" y="281" width="360" height="119" rx="8" fill="#F3F7FA" stroke="#D4DFE6" stroke-width="1.4" />
+  <polyline points="60,300 76,300 83,307 83,328 60,328 60,300" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="76,300 76,307 83,307" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="65,313 78,313" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="65,319 78,319" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="65,324 73,324" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="100" y="318.16" fill="#286390" text-anchor="start" style="font:700 24px Arial, Helvetica, sans-serif">Shared results</text>
+  <text x="60" y="356.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Methods and local metrics</text>
+  <text x="60" y="383.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">enter one research record.</text>
+  <rect x="420" y="281" width="360" height="119" rx="8" fill="#FCF8F0" stroke="#D4DFE6" stroke-width="1.4" />
+  <ellipse cx="447.5" cy="310.5" rx="10.5" ry="10.5" fill="none" stroke="#946123" stroke-width="2" />
+  <polyline points="456,319 465,328" fill="none" stroke="#946123" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="443,310 447,314 453,307" fill="none" stroke="#946123" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="480" y="318.16" fill="#946123" text-anchor="start" style="font:700 24px Arial, Helvetica, sans-serif">Cross-review</text>
+  <text x="440" y="356.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">VA: accuracy 0.7556,</text>
+  <text x="440" y="383.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">but AUROC only 0.5629?</text>
+  <rect x="800" y="281" width="360" height="119" rx="8" fill="#F1F7F5" stroke="#D4DFE6" stroke-width="1.4" />
+  <polyline points="820,300 836,300 843,307 843,328 820,328 820,300" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="836,300 836,307 843,307" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="825,319 830,324 839,313" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="860" y="318.16" fill="#25796F" text-anchor="start" style="font:700 24px Arial, Helvetica, sans-serif">Revised interpretation</text>
+  <text x="820" y="356.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Report prevalence and</text>
+  <text x="820" y="383.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">discrimination together.</text>
+  <polyline points="400,340 418,340" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="410.79642318117857,343.4797242728898 418,340 410.79642318117857,336.5202757271102" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="780,340 798,340" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="790.7964231811786,343.4797242728898 798,340 790.7964231811786,336.5202757271102" fill="none" stroke="#286390" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="40,429 1160,429" fill="none" stroke="#D4DFE6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="36" y="474.52" fill="#182D40" text-anchor="start" style="font:700 28px Arial, Helvetica, sans-serif">b</text>
+  <text x="74" y="474.52" fill="#182D40" text-anchor="start" style="font:700 28px Arial, Helvetica, sans-serif">VA audit: accuracy below the all-positive baseline</text>
+  <text x="74" y="508.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Supplementary recomputation · 22 Nov 2026 · same 45-case test set</text>
+  <text x="40" y="563.16" fill="#182D40" text-anchor="start" style="font:700 24px Arial, Helvetica, sans-serif">Test accuracy</text>
+  <text x="40" y="602.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Logistic regression · 34/45 correct</text>
+  <text x="660" y="602.68" fill="#286390" text-anchor="end" style="font:700 27px Arial, Helvetica, sans-serif">75.56%</text>
+  <rect x="40" y="617" width="620" height="24" rx="0" fill="#F3F7FA" stroke="none" stroke-width="1.4" />
+  <rect x="40" y="617" width="468.44444444444446" height="24" rx="0" fill="#286390" stroke="none" stroke-width="1.4" />
+  <text x="40" y="678.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">All-positive baseline · 35/45 correct</text>
+  <text x="660" y="678.68" fill="#25796F" text-anchor="end" style="font:700 27px Arial, Helvetica, sans-serif">77.78%</text>
+  <rect x="40" y="693" width="620" height="24" rx="0" fill="#F3F7FA" stroke="none" stroke-width="1.4" />
+  <rect x="40" y="693" width="482.22222222222223" height="24" rx="0" fill="#25796F" stroke="none" stroke-width="1.4" />
+  <text x="40" y="746.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">0%</text>
+  <text x="350.0" y="746.64" fill="#526576" text-anchor="middle" style="font:21px Arial, Helvetica, sans-serif">50%</text>
+  <text x="660" y="746.64" fill="#526576" text-anchor="end" style="font:21px Arial, Helvetica, sans-serif">100%</text>
+  <polyline points="40,720 40,725" fill="none" stroke="#D4DFE6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="350,720 350,725" fill="none" stroke="#D4DFE6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="660,720 660,725" fill="none" stroke="#D4DFE6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="45,792 45,819 72,819" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="50,813 56,804 63,807 71,796" fill="none" stroke="#286390" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="88" y="808.84" fill="#286390" text-anchor="start" style="font:700 26px Arial, Helvetica, sans-serif">AUROC 0.5629</text>
+  <text x="88" y="843.48" fill="#526576" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Weak ranking of positive and negative cases</text>
+  <text x="40" y="888.64" fill="#182D40" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">One fewer correct prediction than the all-positive baseline.</text>
+  <polyline points="712,543 712,852" fill="none" stroke="#D4DFE6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+  <ellipse cx="761.0" cy="552.0" rx="5.0" ry="5.0" fill="none" stroke="#25796F" stroke-width="2" />
+  <ellipse cx="777.0" cy="552.0" rx="5.0" ry="5.0" fill="none" stroke="#25796F" stroke-width="2" />
+  <polyline points="754,573 755,565 759,562 763,562 767,565 768,573" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <polyline points="770,573 771,565 775,562 779,562 783,565 784,573" fill="none" stroke="#25796F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="798" y="560.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Actual positive</text>
+  <text x="1160" y="561.68" fill="#25796F" text-anchor="end" style="font:700 27px Arial, Helvetica, sans-serif">35/45</text>
+  <text x="798" y="596.48" fill="#182D40" text-anchor="start" style="font:22px Arial, Helvetica, sans-serif">Predicted positive</text>
+  <text x="1160" y="597.68" fill="#286390" text-anchor="end" style="font:700 27px Arial, Helvetica, sans-serif">38/45</text>
+  <text x="758" y="654.16" fill="#182D40" text-anchor="start" style="font:700 24px Arial, Helvetica, sans-serif">Confusion matrix</text>
+  <text x="923.5" y="696.64" fill="#526576" text-anchor="middle" style="font:21px Arial, Helvetica, sans-serif">Predicted +</text>
+  <text x="1085.5" y="696.64" fill="#526576" text-anchor="middle" style="font:21px Arial, Helvetica, sans-serif">Predicted −</text>
+  <text x="753" y="748.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Actual +</text>
+  <text x="753" y="819.64" fill="#526576" text-anchor="start" style="font:21px Arial, Helvetica, sans-serif">Actual −</text>
+  <rect x="851" y="713" width="145" height="61" rx="5" fill="#EDF5F3" stroke="none" stroke-width="1.4" />
+  <text x="923.5" y="751.84" fill="#25796F" text-anchor="middle" style="font:700 26px Arial, Helvetica, sans-serif">TP 31</text>
+  <rect x="1013" y="713" width="145" height="61" rx="5" fill="#FCF6EC" stroke="none" stroke-width="1.4" />
+  <text x="1085.5" y="751.84" fill="#946123" text-anchor="middle" style="font:700 26px Arial, Helvetica, sans-serif">FN 4</text>
+  <rect x="851" y="784" width="145" height="61" rx="5" fill="#FCF6EC" stroke="none" stroke-width="1.4" />
+  <text x="923.5" y="822.84" fill="#946123" text-anchor="middle" style="font:700 26px Arial, Helvetica, sans-serif">FP 7</text>
+  <rect x="1013" y="784" width="145" height="61" rx="5" fill="#EDF5F3" stroke="none" stroke-width="1.4" />
+  <text x="1085.5" y="822.84" fill="#25796F" text-anchor="middle" style="font:700 26px Arial, Helvetica, sans-serif">TN 3</text>
 </svg>
