@@ -3,7 +3,7 @@
   <desc id="desc">Two-panel figure showing aggregate-only research handoffs across Cleveland, Hungarian and VA partitions, followed by a supplementary VA diagnostic.</desc>
   <defs>
     <style>
-      .title{font:700 30px Arial,Helvetica,sans-serif;fill:#17324D}.sub{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.h{font:700 24px Arial,Helvetica,sans-serif;fill:#17324D}.body{font:21px Arial,Helvetica,sans-serif;fill:#17324D}.small{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.white{fill:#fff}.metric{font:700 34px Arial,Helvetica,sans-serif;fill:#17324D}.center{text-anchor:middle}.left{text-anchor:start}
+      .title{font:700 30px Arial,Helvetica,sans-serif;fill:#17324D}.sub{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.h{font:700 24px Arial,Helvetica,sans-serif;fill:#17324D}.body{font:21px Arial,Helvetica,sans-serif;fill:#17324D}.small{font:20px Arial,Helvetica,sans-serif;fill:#5B677A}.card-label{font:20px Arial,Helvetica,sans-serif;fill:#17324D}.finding-title{font:700 21px Arial,Helvetica,sans-serif;fill:#17324D}.white{fill:#fff}.metric{font:700 34px Arial,Helvetica,sans-serif;fill:#17324D}.auroc-value{font:700 22px Arial,Helvetica,sans-serif;fill:#17324D}.center{text-anchor:middle}.left{text-anchor:start}
     </style>
     <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2D6CDF"/></marker>
     <marker id="arrow-teal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1F9D8B"/></marker>
@@ -33,29 +33,29 @@
   <path d="M490 645 V692" fill="none" stroke="#E98B2A" stroke-width="3" stroke-dasharray="10 8" marker-end="url(#arrow-orange)"/>
   <text x="505" y="678" class="small">review</text>
   <rect x="80" y="700" width="800" height="105" rx="14" fill="#FFF8EC" stroke="#E98B2A" stroke-width="2"/>
-  <text x="102" y="738" class="h">Role C cross-review</text><text x="330" y="738" class="body">· Why accuracy 0.7556 with AUROC 0.5629?</text>
+  <text x="102" y="738" class="h">Role C cross-review</text><text x="340" y="738" class="body">· Why accuracy 0.7556 with AUROC 0.5629?</text>
   <text x="102" y="775" class="small">Revision: report prevalence, discrimination and uncertainty together</text>
   <text x="490" y="850" class="small center" font-style="italic">Local row handling was not a validated security boundary.</text>
 
   <text x="1010" y="72" class="title">b  VA diagnostic</text>
   <text x="1010" y="102" class="sub">supplementary recomputation · 2026-11-22</text>
   <text x="1020" y="155" class="h">Test labels · 45 samples</text>
-  <rect x="1020" y="175" width="388" height="52" rx="8" fill="#2D6CDF"/><rect x="1408" y="175" width="112" height="52" rx="8" fill="#DDE4ED" stroke="#B6C1CF"/>
-  <text x="1214" y="207" class="body white center">35/45 positive · 77.78%</text><text x="1464" y="207" class="small center" fill="#17324D">10 negative</text>
+  <rect x="1020" y="175" width="375" height="52" rx="8" fill="#2D6CDF"/><rect x="1395" y="175" width="125" height="52" rx="8" fill="#DDE4ED" stroke="#B6C1CF"/>
+  <text x="1207.5" y="207" class="body white center">35/45 positive · 77.78%</text><text x="1457.5" y="207" class="small center" fill="#17324D">10 neg.</text>
   <text x="1020" y="275" class="h">Thresholded predictions · 0.5</text>
   <rect x="1020" y="295" width="422" height="52" rx="8" fill="#1F9D8B"/><rect x="1442" y="295" width="78" height="52" rx="8" fill="#DDE4ED" stroke="#B6C1CF"/>
   <text x="1231" y="327" class="body white center">38/45 positive · 84.44%</text><text x="1481" y="327" class="small center" fill="#17324D">7 neg.</text>
 
-  <rect x="1020" y="395" width="155" height="100" rx="12" fill="#F5F7FA" stroke="#6B7C93" stroke-width="2"/><text x="1097" y="425" class="body center">Model accuracy</text><text x="1097" y="469" class="metric center">75.56%</text>
-  <rect x="1190" y="395" width="165" height="100" rx="12" fill="#FFF8EC" stroke="#E98B2A" stroke-width="2"/><text x="1272" y="418" class="body center"><tspan x="1272">All-positive</tspan><tspan x="1272" dy="21">baseline</tspan></text><text x="1272" y="480" class="metric center">77.78%</text>
-  <rect x="1370" y="395" width="170" height="100" rx="12" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/><text x="1455" y="425" class="body center">Discrimination</text><text x="1455" y="469" class="h center">AUROC 0.5629</text>
+  <rect x="1020" y="395" width="155" height="100" rx="12" fill="#F5F7FA" stroke="#6B7C93" stroke-width="2"/><text x="1097.5" y="416" class="card-label center"><tspan x="1097.5">Model</tspan><tspan x="1097.5" dy="22">accuracy</tspan></text><text x="1097.5" y="482" class="metric center">75.56%</text>
+  <rect x="1190" y="395" width="155" height="100" rx="12" fill="#FFF8EC" stroke="#E98B2A" stroke-width="2"/><text x="1267.5" y="416" class="card-label center"><tspan x="1267.5">All-positive</tspan><tspan x="1267.5" dy="22">baseline</tspan></text><text x="1267.5" y="482" class="metric center">77.78%</text>
+  <rect x="1360" y="395" width="180" height="100" rx="12" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/><text x="1450" y="425" class="card-label center">Discrimination</text><text x="1450" y="469" class="auroc-value center">AUROC 0.5629</text>
 
   <text x="1020" y="555" class="h">Confusion matrix</text>
   <rect x="1020" y="575" width="115" height="70" rx="10" fill="#E8F7F4" stroke="#1F9D8B"/><rect x="1145" y="575" width="115" height="70" rx="10" fill="#FFF3E8" stroke="#E98B2A"/>
   <rect x="1020" y="655" width="115" height="70" rx="10" fill="#FFF3E8" stroke="#E98B2A"/><rect x="1145" y="655" width="115" height="70" rx="10" fill="#E8F7F4" stroke="#1F9D8B"/>
   <text x="1077" y="618" class="h center">TP 31</text><text x="1202" y="618" class="body center">FN 4</text><text x="1077" y="698" class="body center">FP 7</text><text x="1202" y="698" class="h center">TN 3</text>
-  <rect x="1290" y="555" width="250" height="170" rx="14" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/>
-  <text x="1312" y="592" class="h">Representative finding</text><text x="1312" y="632" class="body"><tspan x="1312" dy="0">Accuracy was below the</tspan><tspan x="1312" dy="28">all-positive baseline;</tspan><tspan x="1312" dy="28">AUROC exposed weak ranking.</tspan></text>
+  <rect x="1275" y="555" width="265" height="170" rx="14" fill="#FFF0F0" stroke="#C94C4C" stroke-width="2"/>
+  <text x="1297" y="592" class="finding-title">Representative finding</text><text x="1297" y="632" class="body"><tspan x="1297" dy="0">Accuracy was below the</tspan><tspan x="1297" dy="25">all-positive baseline;</tspan><tspan x="1297" dy="25">AUROC exposed</tspan><tspan x="1297" dy="25">weak ranking.</tspan></text>
   <rect x="1020" y="775" width="520" height="60" rx="12" fill="#F5F7FA" stroke="#B6C1CF"/>
   <text x="1280" y="812" class="body center">Next: harmonise · repeat splits · quantify uncertainty</text>
 </svg>

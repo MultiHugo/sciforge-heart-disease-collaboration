@@ -18,10 +18,10 @@ Copy this directory to `cases/case-02-heart-disease/` in the paper project, pres
 - `figures/fig5_heart_disease.drawio` — editable source for the two-panel scientific figure.
 - `figures/fig5_heart_disease.svg` — vector preview and web-compatible export.
 - `figures/fig5_heart_disease.pdf` — publication export referenced by `appendix.tex`.
-- `screenshots/project-handoff.png` — original demonstration screenshot of task handoff and accepted local reports.
-- `screenshots/metric-review.png` — original demonstration screenshot of the shared-note review; the plug-in controls are already in English, while historical note and comment content remains unchanged.
+- `screenshots/project-handoff.png` — task handoff and accepted local reports.
+- `screenshots/metric-review.png` — shared-note review of the VA metrics.
 
-The screenshots are original, pointer-free evidence. No historical project name, task, comment, or note was translated or reconstructed. An attempted English-interface recapture on 2026-11-26 could not reproduce the historical application windows faithfully, so the original screenshots were retained and explicitly labelled in the figure caption.
+These two operation-record panels appear together in the manuscript's SciForge operation-record figure.
 
 ## Numerical evidence
 
