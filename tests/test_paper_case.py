@@ -166,6 +166,30 @@ class PaperCaseContractTests(unittest.TestCase):
                 msg=f"{name} lacks an explicit provenance label",
             )
 
+    def test_package_documentation_and_public_links_resolve(self):
+        """Catches a complete case package that remains undiscoverable or cannot be copied."""
+        package_readme = CASE_DIR / "README.md"
+        self.assertTrue(package_readme.is_file(), "paper package README is missing")
+        text = package_readme.read_text(encoding="utf-8")
+        for required in (
+            "body.tex",
+            "appendix.tex",
+            "figures/fig5_heart_disease.drawio",
+            "figures/fig5_heart_disease.svg",
+            "figures/fig5_heart_disease.pdf",
+            "screenshots/project-handoff.png",
+            "screenshots/metric-review.png",
+            "2026-11-22",
+            "results/original",
+            "results/supplementary/va-test-distribution-20261122.json",
+        ):
+            self.assertIn(required, text)
+
+        root_readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        public_report = (ROOT / "docs" / "case-study.en.md").read_text(encoding="utf-8")
+        self.assertIn("paper/case-02-heart-disease/README.md", root_readme)
+        self.assertIn("../paper/case-02-heart-disease/README.md", public_report)
+
 
 if __name__ == "__main__":
     unittest.main()

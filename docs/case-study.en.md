@@ -1,20 +1,22 @@
-# Collaborative Analysis of Institutional Heart Disease Partitions: Local Classification and Cross-review
+# Cross-review of local models across Heart Disease partitions
 
 Case author: Zeyu Zhang (张泽宇 / MultiHugo)
 
-## Research setting
+The [paper-ready LaTeX case package](../paper/case-02-heart-disease/README.md) follows the structure and asset conventions of the SciForge 2.0 manuscript.
 
-This case uses the Cleveland, Hungarian, and VA partitions of the UCI Heart Disease dataset to establish local classification baselines and examine their interpretation through cross-review. One operator controlled three SciForge test accounts on a single machine: lead B analyzed Cleveland and integrated the shared research note; member C analyzed Hungarian and reviewed the results; member D analyzed VA. Data were processed in separate working directories, while the project exchanged method descriptions, aggregate metrics, and research notes. This arrangement simulated research handoffs; it did not establish real institutional data isolation.
+## Research setting and roles
 
-## Execution
+This case used the Cleveland, Hungarian, and VA partitions of the UCI Heart Disease dataset to establish local classification baselines and test whether cross-review could reveal a misleading interpretation. One operator controlled three SciForge accounts on one Windows device: Role B analyzed Cleveland and maintained the shared record, Role C analyzed Hungarian and reviewed the submissions, and Role D analyzed VA. The roles worked in separate directories and handed off method summaries and aggregate results rather than patient-level rows.
 
-All roles used a custom NumPy logistic regression workflow with random seed 43, class-stratified train/test splitting, and standardization parameters estimated from training data only. After local CPU-based cleaning, training, and evaluation, members submitted their methods and aggregate results to the project. Lead B reviewed and accepted the submissions from C and D, then integrated all three baselines into the shared research note (Figure 1).
+## Analysis and cross-review
 
-During cross-review, C highlighted VA's test accuracy of 0.7556 alongside an AUROC of only 0.5629. The team added context on class composition and metric interpretation, retained the statement that federated training had not been performed, and identified aligned evaluation and additional statistical checks as follow-up work. Members reviewed the revised note (Figure 2). The VA test-label and prediction distributions below were recomputed later, on 2026-11-22; they were not part of the original demonstration.
+All roles used the same custom NumPy logistic-regression workflow: random seed 43, a class-stratified train/test split, and standardization estimated from training data only. After local CPU analysis, Roles C and D submitted their methods and aggregate results. Role B accepted the two reports and integrated all three baselines into the shared research record (Figure 1).
+
+Cross-review centred on one discrepancy: VA reached 0.7556 test accuracy but only 0.5629 AUROC. Role C asked whether prevalence was making the accuracy look more reassuring than the model's discrimination. The shared record was revised to report prevalence, accuracy and AUROC together and to identify repeated splits and uncertainty estimates as the next experiment (Figure 2). The original demonstration did not preserve the VA test-label and prediction counts; those counts were recomputed later, on 2026-11-22, from the hash-verified script and public source data.
 
 ## Main results
 
-The table reports positivity across all retained samples after cleaning; AUROC and accuracy are computed on each partition's own test set. These different test sets do not support a direct ranking of model performance.
+The table reports positivity across all retained samples after cleaning. AUROC and accuracy come from each partition's own test set, so the rows describe local baselines rather than a controlled model ranking.
 
 | Partition | Retained samples | Train / test | Positivity, all retained samples | Test AUROC | Test accuracy |
 |---|---:|---:|---:|---:|---:|
@@ -22,11 +24,13 @@ The table reports positivity across all retained samples after cleaning; AUROC a
 | Hungarian | 261 | 171 / 90 | 37.55% | 0.9044 | 0.8333 |
 | VA | 130 | 85 / 45 | 77.69% | 0.5629 | 0.7556 |
 
-VA provided the clearest reason for further investigation. The later recomputation found 35 positive labels among 45 test samples (77.78%); at a threshold of 0.5, the model predicted 38 samples as positive (84.44%). Its accuracy of 75.56% was below the 77.78% obtained by predicting every test sample as positive, while AUROC was 0.5629. Thus, accuracy near 76% did not establish useful classification performance. This check supplied additional quantitative support for the concern raised during review, although the causes of the weak performance require further experiments.
+### Representative finding: VA accuracy masked weak discrimination
 
-## Case value and scope
+The later recomputation found 35 positive labels among 45 VA test samples (77.78%). At a threshold of 0.5, the model predicted 38 positives (84.44%), with 31 true positives, four false negatives, three true negatives and seven false positives. Its 75.56% accuracy was below the 77.78% obtained by predicting every sample as positive, while AUROC remained 0.5629. The review therefore converted a seemingly acceptable accuracy into a specific evaluation question: before comparing local and collaborative training strategies, align preprocessing, repeat the split and quantify uncertainty.
 
-The case completed independent analysis of three partitions, result submission, cross-review, and a shared research note. A member's question about VA's metrics led the lead to clarify the interpretation, with discussion and revision retained in the same project. The experiment used one machine, multiple accounts, and a custom implementation. It did not execute federated training, official FLamby evaluation, physical institutional isolation tests, joint-versus-local model comparisons, repeated splits, or confidence intervals.
+## Collaboration outcome and scope
+
+The three local analyses, accepted reports, review question and revised interpretation remained attached to one project. The case demonstrates a traceable collaborative handoff and a concrete scientific adjustment, not a federated-learning result. It used one operator, one device and a custom NumPy implementation; it did not validate institutional isolation, run official FLamby evaluation, compare federated and local models, or estimate confidence intervals.
 
 ## Figures
 
@@ -36,6 +40,6 @@ Figure 1. The lead reviews completed Hungarian and VA tasks and submitted materi
 
 ![Shared note and cross-review](../figures/02-peer-review.png)
 
-Figure 2. Members discuss VA metric interpretation, the scope of shared materials, and future evaluation. The original screenshot does not contain the later 2026-11-22 analysis.
+Figure 2. Members discuss VA metric interpretation, the scope of shared materials, and future evaluation. This original screenshot does not contain the later 2026-11-22 recomputation.
 
 See [METHODS.md](../METHODS.md) and the [repository overview](../README.md) for data attribution and reproduction instructions.

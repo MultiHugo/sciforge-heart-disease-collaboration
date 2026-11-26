@@ -6,6 +6,7 @@
 
 - [中文案例报告](docs/case-study.zh-CN.md)
 - [English case report](docs/case-study.en.md)
+- [论文案例包（LaTeX + Draw.io/SVG/PDF）](paper/case-02-heart-disease/README.md)
 - [方法与复现说明](METHODS.md)
 - [历史共享研究记录](provenance/shared-research-note-20261113.md)
 - [原始三组汇总结果](results/original/)
