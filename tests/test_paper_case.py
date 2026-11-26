@@ -5,6 +5,8 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+from PIL import Image
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CASE_DIR = ROOT / "paper" / "case-02-heart-disease"
@@ -144,6 +146,25 @@ class PaperCaseContractTests(unittest.TestCase):
             self.assertIn(label, svg_text)
 
         self.assertTrue(pdf.read_bytes().startswith(b"%PDF-"), "figure PDF is not a valid PDF stream")
+
+    def test_operation_screenshots_exist_and_are_provenance_labelled(self):
+        """Catches missing, unreadable, or ambiguously sourced operation evidence."""
+        appendix = self.read_case_file(APPENDIX)
+        screenshots = CASE_DIR / "screenshots"
+        for name in ("project-handoff.png", "metric-review.png"):
+            path = screenshots / name
+            self.assertTrue(path.is_file(), f"missing screenshot: {path.relative_to(ROOT)}")
+            with Image.open(path) as image:
+                self.assertEqual(image.format, "PNG")
+                self.assertGreaterEqual(image.width, 1200)
+                self.assertGreaterEqual(image.height, 700)
+            include_at = appendix.index(f"screenshots/{name}")
+            panel_text = appendix[include_at:include_at + 420]
+            self.assertRegex(
+                panel_text,
+                r"(?:original demonstration screenshot|English-interface reconstruction)",
+                msg=f"{name} lacks an explicit provenance label",
+            )
 
 
 if __name__ == "__main__":
